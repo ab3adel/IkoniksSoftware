@@ -3,18 +3,27 @@ import { AboutTwoData } from "@/data";
 import { Col, Container, Row } from "react-bootstrap";
 
 const AboutTwo = ({payload}) => {
-  let {body,title,attachment}=payload
-  const { sectionContent, button, gallery } = AboutTwoData;
-  let Image =`http://backend.test.ikoniks.de/${attachment}`
+let image = null
+let title =null
+let body =null
+let attachment =null
+ if (payload ) {
+   attachment =payload.attachment
+   title= payload.title
+   body=payload.body
+  image =`http://backend.test.ikoniks.de/${attachment}`
 
+ }
+  const { sectionContent, button, gallery } = AboutTwoData;
+ 
   return (
     <section className="commonSection ab_agency">
       <Container>
         <Row>
           <Col lg={6} md={6} sm={12} className="PR_79">
             <h4 className="sub_title">{sectionContent.subTitle}</h4>
-            <h2 className="sec_title MB_45">{title.en}</h2>
-            <p className="sec_desc">{body.en}</p>
+            <h2 className="sec_title MB_45">{ title? title.en :"title"}</h2>
+            <p className="sec_desc">{body ? body.en: "title 2 "}</p>
             <a className="common_btn red_bg" href={button.url}>
               <span>{button.label}</span>
             </a>
@@ -22,7 +31,7 @@ const AboutTwo = ({payload}) => {
           <Col lg={6} md={6} sm={12}>
             {gallery.map((item, index) => (
               <div className={`ab_img${index + 1}`} key={index}>
-                <img src={Image} alt="" />
+                <img src={image ? image : ''} alt="" />
               </div>
             ))}
           </Col>

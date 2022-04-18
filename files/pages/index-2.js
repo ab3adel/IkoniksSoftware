@@ -29,7 +29,7 @@ let {payload} =data
           <CallToActionOne extraClassName="ready_2" buttonClass="red_bg" />
           <ServiceHomeTwo />
           <FeatureTwo />
-          <PortfolioHome />
+          <PortfolioHome payload={null} />
           <TestimonialsOneCarousel />
           <FeatureTabOne />
           <ServiceThree />

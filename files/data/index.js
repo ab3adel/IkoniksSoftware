@@ -18,9 +18,9 @@ export const NavLinks = [
       // {
       //   name: "Home 02",
       //   url: "/index-2"
-      // },
-      // {
-      //   name: "Home 03",
+      //  },
+      //  {
+      //    name: "Home 03",
       //   url: "/index-3"
       // }
     ]

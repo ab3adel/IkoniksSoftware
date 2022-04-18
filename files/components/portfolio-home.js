@@ -7,7 +7,7 @@ import { PortfolioHomeData, PortfolioData } from "@/data";
 const PortfolioHome = ({payload}) => {
   const { sectionContent } = PortfolioHomeData;
 let dataArr=[]
-if (payload.length>0) {
+if (payload && payload.length>0) {
  dataArr= payload.map(ele=> ({image:`http://backend.test.ikoniks.de/${ele.attachment}`
                    ,title:ele.body.en,categories:["All","Development"],url: "/portfolio-details"}))
 }
@@ -25,7 +25,7 @@ if (payload.length>0) {
             <Row>
               {PortfolioData.map((post, index) => (
                 <Col lg={4} md={6} sm={12} key={index}>
-                  <PortfolioCard data={payload.length >0 ?dataArr[index]:post} />
+                  <PortfolioCard data={payload && payload.length >0 ?dataArr[index]:post} />
                 </Col>
               ))}
             </Row>

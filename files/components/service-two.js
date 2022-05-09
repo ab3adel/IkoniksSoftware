@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { ServicePostTwoData } from "@/data";
 import ServiceCardTwo from "@/components/service-card-two";
+import { fetchServices } from '../lib/fetchData'
 
-const ServiceTwo = () => {
+
+const ServiceTwo = ({ data }) => {
   const { sectionContent, posts } = ServicePostTwoData;
   const { title, subTitle, text } = sectionContent;
+  // let { payload } = dataa
+  // const fetched = useMemo(async () => {
+  //   let res = await fetchServices().then(data => { return data.payload })
+  //   return res
+  // })
+  console.log('ServicePostTwoData', data)
   return (
     <section className="service_section commonSection">
       <Container>
@@ -29,3 +37,4 @@ const ServiceTwo = () => {
 };
 
 export default ServiceTwo;
+

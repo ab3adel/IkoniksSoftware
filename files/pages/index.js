@@ -17,29 +17,34 @@ import HeaderOne from "@/components/header-one";
 import SearchContextProvider from "@/context/search-context";
 import MenuContextProvider from "@/context/menu-context";
 import SliderOne from "@/components/slider-one";
-import {fetchHome} from '../lib/fetchData'
+import SliderBanner from "@/components/SliderBanner/SliderBanner";
+import { fetchHome, fetchServices } from '../lib/fetchData'
 
-const HomeOne = ({data}) => {
-let {payload}=data
-let portfolioSection = payload.filter(ele=>ele.title.en === 'OUR PORTFOLIO')
+const HomeOne = ({ data, services }) => {
+  let { payload } = data
+  let portfolioSection = payload.filter(ele => ele.title.en === 'OUR PORTFOLIO')
 
   return (
     <MenuContextProvider>
       <SearchContextProvider>
         <Layout PageTitle="Home One">
           <HeaderOne />
-          <SliderOne payload={payload[0]}/>
-          <ServiceTwo payload={payload[1]} />
+          <SliderBanner data={payload} />
           <AboutTwo payload={payload[2]} />
-          <VideoTwo />
-          <SubscribeForm />
-          <PortfolioHome payload={portfolioSection} />
-          <FunfactOne />
-          <TrustedClient payload= {payload[5]} />
-          {/* <TeamCarousel /> */}
-          <ClientCarouselOne />
+          {/* <SliderOne payload={payload[0]} /> */}
+          <ServiceTwo payload={payload[1]} data={services.payload} />
+
           <ParallaxOne />
-          <BlogHome />
+          <VideoTwo />
+          <PortfolioHome payload={portfolioSection} />
+          <ClientCarouselOne />
+          {/* <SubscribeForm /> */}
+
+          <FunfactOne />
+          <TrustedClient payload={payload[5]} />
+          {/* <TeamCarousel /> */}
+
+          {/* <BlogHome /> */}
           <CallToActionOne extraClassName="ready" />
           <Footer />
         </Layout>
@@ -51,11 +56,12 @@ let portfolioSection = payload.filter(ele=>ele.title.en === 'OUR PORTFOLIO')
 export default HomeOne;
 
 
-export async function getStaticProps () {
-  
+export async function getStaticProps() {
+
   let data = await fetchHome()
+  let services = await fetchServices()
 
   return {
-    props :{data}
+    props: { data, services }
   }
 }

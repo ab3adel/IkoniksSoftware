@@ -20,26 +20,47 @@ import SliderOne from "@/components/slider-one";
 import SliderBanner from "@/components/SliderBanner/SliderBanner";
 import { fetchHome, fetchServices } from '../lib/fetchData'
 // import { magicMouse } from 'magicmouse.js'
-// import dynamic from 'next/dynamic'
-
-// const { magicMouse } = dynamic(async () => await import('magicmouse.js'), { ssr: false },)
+import dynamic from 'next/dynamic'
+// import  from ;
+const CustomCursor = dynamic(async () => await import('custom-cursor-react'), { ssr: false },)
 
 const HomeOne = ({ data, services }) => {
   let { payload } = data
   let portfolioSection = payload.filter(ele => ele.title.en === 'OUR PORTFOLIO')
-  // const options = {
-  //   "cursorOuter": "circle-basic",
-  //   "hoverEffect": "circle-move",
-  //   "hoverItemMove": false,
-  //   "defaultCursor": false,
-  //   "outerWidth": 30,
-  //   "outerHeight": 30
-  // };
-  // magicMouse && magicMouse(options);
+  React.useEffect(async () => {
+    // const { magicMouse } = await require('magicmouse.js')
+    // const options = {
+    //   "cursorOuter": "circle-basic",
+    //   "hoverEffect": "circle-move",
+    //   "hoverItemMove": false,
+    //   "defaultCursor": false,
+    //   "outerWidth": 30,
+    //   "outerHeight": 30,
+    //   "color": "red"
+    // };
+    // magicMouse(options);
+  })
+
   return (
     <MenuContextProvider>
       <SearchContextProvider>
         <Layout PageTitle="Home One">
+          <CustomCursor
+            targets={['.link', 'a', 'button', 'input', '.your-css-selector']}
+            customClass='cursor-circle'
+            dimensions={38}
+            fill='#eb3064'
+            strokeColor='#23abe2'
+            strokeWidth={10}
+            smoothness={{
+              movement: 0.2,
+              scale: 0.6,
+              opacity: 0.5,
+            }}
+            targetOpacity={0.2}
+            targetScale={2}
+
+          />
           <HeaderOne />
           <SliderBanner data={payload} />
           <AboutTwo payload={payload[2]} />

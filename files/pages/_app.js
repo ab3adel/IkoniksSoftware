@@ -8,6 +8,8 @@ import "@/css/theme.css";
 import "@/css/responsive.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
+import 'custom-cursor-react/dist/index.css';
 import "@/css/SliderBanner.css";
 
 

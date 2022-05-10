@@ -13,7 +13,7 @@ const ServiceTwo = ({ data }) => {
   //   let res = await fetchServices().then(data => { return data.payload })
   //   return res
   // })
-  console.log('ServicePostTwoData', data)
+
   return (
     <section className="service_section commonSection">
       <Container>
@@ -25,10 +25,17 @@ const ServiceTwo = ({ data }) => {
           </Col>
         </Row>
         <Row className="custom_column">
-          {posts.map((data, index) => (
-            <Col key={index} lg={3} md={6} sm={12}>
-              <ServiceCardTwo data={data} />
-            </Col>
+          {data && data.map((item, index) => (
+            <React.Fragment key={item.id} >
+              {
+                item.id !== 90 ?
+                  <Col lg={3} md={6} sm={12}>
+                    <ServiceCardTwo data={item} />
+                  </Col>
+                  :
+                  null
+              }
+            </React.Fragment>
           ))}
         </Row>
       </Container>

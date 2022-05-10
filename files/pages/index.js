@@ -19,11 +19,23 @@ import MenuContextProvider from "@/context/menu-context";
 import SliderOne from "@/components/slider-one";
 import SliderBanner from "@/components/SliderBanner/SliderBanner";
 import { fetchHome, fetchServices } from '../lib/fetchData'
+// import { magicMouse } from 'magicmouse.js'
+// import dynamic from 'next/dynamic'
+
+// const { magicMouse } = dynamic(async () => await import('magicmouse.js'), { ssr: false },)
 
 const HomeOne = ({ data, services }) => {
   let { payload } = data
   let portfolioSection = payload.filter(ele => ele.title.en === 'OUR PORTFOLIO')
-
+  // const options = {
+  //   "cursorOuter": "circle-basic",
+  //   "hoverEffect": "circle-move",
+  //   "hoverItemMove": false,
+  //   "defaultCursor": false,
+  //   "outerWidth": 30,
+  //   "outerHeight": 30
+  // };
+  // magicMouse && magicMouse(options);
   return (
     <MenuContextProvider>
       <SearchContextProvider>

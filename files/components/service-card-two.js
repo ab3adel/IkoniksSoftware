@@ -8,7 +8,7 @@ const ServiceCardTwo = ({ data }) => {
     <Link href={'/service-details'}>
       <a className="icon_box_1 text-center">
         <div className="flipper">
-          <div className="front">
+          <div className="front" style={{ backgroundImage: `url(http://backend.test.ikoniks.de/${data.background})` }}>
             {/* <i className={iconName}></i> */}
             <h3>{data.title.en}</h3>
           </div>

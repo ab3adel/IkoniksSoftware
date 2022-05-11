@@ -461,6 +461,22 @@ License URI:
   border: 2px solid rgba(27, 27, 27, 1);
   /* padding: 48px 45px 45px; */
   width: 100%;
+  background: round;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.front::before {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  display: block;
+  content: "";
+  left: 0;
+  background: #14141494;
+  z-index: -2;
+
 }
 
 .vertical .back {

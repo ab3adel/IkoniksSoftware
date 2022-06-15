@@ -1,19 +1,27 @@
 import React from "react";
 import Link from "next/link";
+import { useTranslation } from 'next-i18next'
 
+import Zoom from 'react-reveal/Zoom';
+import { useRouter } from 'next/router'
 const ServiceCardOne = ({ data }) => {
-  const { title, text, iconName, url } = data;
+  const { t } = useTranslation('common')
+  const router = useRouter()
+  const { title, body, iconName, url, attachment, id } = data;
   return (
-    <div className="icon_box_2 text-center">
-      <h3>{title}</h3>
-      <p>{text}</p>
-      <div className="iconWrap">
-        <i className={iconName}></i>
+    <Zoom cascade ssrReveal={true} ssrFadeout={true} >
+      <div className="icon_box_2 text-center">
+        <h3>{title[router.locale]}</h3>
+        <p>{body[router.locale]}</p>
+        <div className="iconWrap">
+          <img src={`http://backend.test.ikoniks.de/${attachment}`} className="serviceIMG"></img>
+          {/* <i className={iconName}></i> */}
+        </div>
+        <Link href={'/service-details?service=' + data.id}>
+          <a>{t("discover more")}</a>
+        </Link>
       </div>
-      <Link href={url}>
-        <a>discover more</a>
-      </Link>
-    </div>
+    </Zoom>
   );
 };
 

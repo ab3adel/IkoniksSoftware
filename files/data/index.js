@@ -10,20 +10,20 @@ export const NavLinks = [
   {
     name: "Home",
     url: "/",
-    subItems: [
-      {
-        name: "Home 01",
-        url: "/"
-      },
-      // {
-      //   name: "Home 02",
-      //   url: "/index-2"
-      //  },
-      //  {
-      //    name: "Home 03",
-      //   url: "/index-3"
-      // }
-    ]
+    // subItems: [
+    //   {
+    //     name: "Home 01",
+    //     url: "/"
+    //   },
+    // {
+    //   name: "Home 02",
+    //   url: "/index-2"
+    //  },
+    //  {
+    //    name: "Home 03",
+    //   url: "/index-3"
+    // }
+    // ]
   },
   {
     name: "About",
@@ -32,56 +32,68 @@ export const NavLinks = [
   {
     name: "Services",
     url: "/service",
-    subItems: [
-      {
-        name: "Services",
-        url: "/service"
-      },
-      {
-        name: "Service Details",
-        url: "/service-details"
-      }
-    ]
+    // subItems: [
+    //   {
+    //     name: "Services",
+    //     url: "/service"
+    //   },
+    //   {
+    //     name: "Service Details",
+    //     url: "/service-details"
+    //   }
+    // ]
   },
   {
     name: "Portfolio",
     url: "/portfolio",
-    subItems: [
-      {
-        name: "Portfolio 01",
-        url: "/portfolio"
-      },
-      {
-        name: "Portfolio Details",
-        url: "/portfolio-details"
-      }
-    ]
+    // subItems: [
+    //   {
+    //     name: "Portfolio 01",
+    //     url: "/portfolio"
+    //   },
+    //   {
+    //     name: "Portfolio Details",
+    //     url: "/portfolio-details"
+    //   }
+    // ]
   },
   {
     name: "Blog",
-    url: "/blog",
-    subItems: [
-      {
-        name: "Blog 01",
-        url: "/blog"
-      },
-      {
-        name: "Blog 02",
-        url: "/blog-2"
-      },
-      {
-        name: "Blog 03",
-        url: "/blog-3"
-      },
-      {
-        name: "Blog Details",
-        url: "/blog-single"
-      }
-    ]
+    url: "/blog"
+  },
+  // {
+  //   name: "Blog",
+  //   url: "/blog",
+  //   subItems: [
+  //     {
+  //       name: "Blog 01",
+  //       url: "/blog"
+  //     },
+  //     {
+  //       name: "Blog 02",
+  //       url: "/blog-2"
+  //     },
+  //     {
+  //       name: "Blog 03",
+  //       url: "/blog-3"
+  //     },
+  //     {
+  //       name: "Blog Details",
+  //       url: "/blog-single"
+  //     }
+  //   ]
+  // },
+  {
+    name: "IMPRESSUM",
+    url: "/impressum"
   },
   {
     name: "Contact",
     url: "/contact"
+  },
+  {
+    name: "lang",
+    url: "/lang"
   }
 ];
 
@@ -240,11 +252,11 @@ export const ContactFormTitle = {
     "We are committed to providing our customers with exceptional service while \n      offering our employees the best training. "
 };
 
-import blogImage1 from "@/images/blog/1.jpg";
-import blogImage2 from "@/images/blog/2.jpg";
-import blogImage3 from "@/images/blog/3.jpg";
-import blogImage4 from "@/images/blog/4.jpg";
-import blogImage5 from "@/images/blog/5.jpg";
+import blogImage1 from "@/images/blog/1-11.jpg";
+import blogImage2 from "@/images/blog/1-11.jpg";
+import blogImage3 from "@/images/blog/1-11.jpg";
+import blogImage4 from "@/images/blog/1-11.jpg";
+import blogImage5 from "@/images/blog/1-11.jpg";
 import blogImage6 from "@/images/blog/6.jpg";
 
 export const BlogData = [
@@ -656,7 +668,7 @@ export const AboutOneData = {
   gallery: [aboutOne01, aboutOne02],
   counter: {
     title: "Company Started",
-    number: 1990
+    number: 2020
   }
 };
 

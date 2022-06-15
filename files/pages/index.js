@@ -13,38 +13,34 @@ import SubscribeForm from "@/components/subscribe-form";
 import ServiceTwo from "@/components/service-two";
 import AboutTwo from "@/components/about-two";
 import VideoTwo from "@/components/video-two";
+
+import ServicesSection from "@/components/ServicesSection";
 import HeaderOne from "@/components/header-one";
 import SearchContextProvider from "@/context/search-context";
 import MenuContextProvider from "@/context/menu-context";
-import SliderOne from "@/components/slider-one";
+// import Portfolio from "@/components/Portfolio";
 import SliderBanner from "@/components/SliderBanner/SliderBanner";
-import { fetchHome, fetchServices } from '../lib/fetchData'
-// import { magicMouse } from 'magicmouse.js'
+import { fetchHome, fetchServices, fetchSections } from '../lib/fetchData'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+
+
 import dynamic from 'next/dynamic'
 // import  from ;
 const CustomCursor = dynamic(async () => await import('custom-cursor-react'), { ssr: false },)
+const Portfolio = dynamic(async () => await import("@/components/Portfolio"), { ssr: false },)
+const HomeOne = ({ sections }) => {
 
-const HomeOne = ({ data, services }) => {
-  let { payload } = data
-  let portfolioSection = payload.filter(ele => ele.title.en === 'OUR PORTFOLIO')
-  React.useEffect(async () => {
-    // const { magicMouse } = await require('magicmouse.js')
-    // const options = {
-    //   "cursorOuter": "circle-basic",
-    //   "hoverEffect": "circle-move",
-    //   "hoverItemMove": false,
-    //   "defaultCursor": false,
-    //   "outerWidth": 30,
-    //   "outerHeight": 30,
-    //   "color": "red"
-    // };
-    // magicMouse(options);
-  })
+  // let portfolioSection = payload.filter(ele => ele.title.en === 'OUR PORTFOLIO')
+  let about = sections.payload.find(ele => ele.id === 14).categories.find(ele => ele.id === 14).nodes[0]
+  let portfolioSection = sections.payload.find(ele => ele.id === 16).categories.find(ele => ele.id === 16).nodes
+  let sliderData = sections.payload.find(ele => ele.id === 13).categories.find(ele => ele.id === 18).nodes
+  let servicesData = sections.payload.find(ele => ele.id === 19).categories.find(ele => ele.id === 38).nodes
+  let clients = sections.payload.find(ele => ele.id === 27)
 
   return (
-    <MenuContextProvider>
+    < MenuContextProvider >
       <SearchContextProvider>
-        <Layout PageTitle="Home One">
+        <Layout PageTitle="IKONIKS Software">
           <CustomCursor
             targets={['.link', 'a', 'button', 'input', '.your-css-selector']}
             customClass='cursor-circle'
@@ -62,39 +58,48 @@ const HomeOne = ({ data, services }) => {
 
           />
           <HeaderOne />
-          <SliderBanner data={payload} />
-          <AboutTwo payload={payload[2]} />
-          {/* <SliderOne payload={payload[0]} /> */}
-          <ServiceTwo payload={payload[1]} data={services.payload} />
+          <SliderBanner data={sliderData} />
+          <AboutTwo payload={about} />
 
-          <ParallaxOne />
-          <VideoTwo />
-          <PortfolioHome payload={portfolioSection} />
-          <ClientCarouselOne />
-          {/* <SubscribeForm /> */}
+          {/* <ServiceTwo data={servicesData} /> */}
+          <ServicesSection />
 
-          <FunfactOne />
-          <TrustedClient payload={payload[5]} />
+          {/* <VideoTwo /> */}
+          {/* <PortfolioHome payload={portfolioSection} /> */}
+          <Portfolio withTitle={true} />
+          <BlogHome />
+          <ClientCarouselOne payload={clients} />
+
+
+          {/* <FunfactOne /> */}
+          {/* <TrustedClient
+          //  payload={payload[5]}
+          /> */}
           {/* <TeamCarousel /> */}
 
-          {/* <BlogHome /> */}
+
           <CallToActionOne extraClassName="ready" />
           <Footer />
         </Layout>
       </SearchContextProvider>
-    </MenuContextProvider>
+    </MenuContextProvider >
   );
 };
 
 export default HomeOne;
 
 
-export async function getStaticProps() {
+export async function getStaticProps({ locale }) {
 
-  let data = await fetchHome()
-  let services = await fetchServices()
-
+  // let data = await fetchHome()
+  // let services = await fetchServices()
+  let sections = await fetchSections()
   return {
-    props: { data, services }
+    props: { ...await serverSideTranslations(locale, ['common']), sections }, revalidate: 300,
   }
 }
+// export const getStaticProps = async ({ locale }) => ({
+//   props: {
+//     ...await serverSideTranslations(locale, ['common']),
+//   },
+// })

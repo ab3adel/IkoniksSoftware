@@ -46,13 +46,13 @@ const SinglePostCard = () => {
             and the like.
           </p>
         </div>
-        <div className="blog_tagitems">
+        {/* <div className="blog_tagitems">
           <span>Tags:</span>
           <a href="#">Business</a>, <a href="#">Agency</a>,{" "}
           <a href="#">Digital</a>, <a href="#">Technology</a>
-        </div>
-        <AuthorCard />
-        <Comments />
+        </div> */}
+        {/* <AuthorCard /> */}
+        {/* <Comments /> */}
       </div>
     </Fragment>
   );

@@ -5,6 +5,7 @@ import PageBanner from "@/components/page-banner";
 import BlogDetails from "@/components/blog-details";
 import MenuContextProvider from "context/menu-context";
 import SearchContextProvider from "context/search-context";
+import RelatedBlog from "@/components/relatedBlog";
 import HeaderOne from "@/components/header-one";
 
 const BlogSinglePage = () => {
@@ -15,6 +16,7 @@ const BlogSinglePage = () => {
           <HeaderOne />
           <PageBanner title="Blog Details" name="Blog" />
           <BlogDetails />
+          <RelatedBlog />
           <Footer />
         </Layout>
       </SearchContextProvider>

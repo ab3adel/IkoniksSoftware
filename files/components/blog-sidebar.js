@@ -3,11 +3,11 @@ import { BlogSidebarPost } from "@/data";
 const BlogSidebar = () => {
   return (
     <Fragment>
-      <aside className="widget search-widget">
+      {/* <aside className="widget search-widget">
         <form method="post" action="#" className="searchform">
           <input type="search" placeholder="Search here..." name="s" id="s" />
         </form>
-      </aside>
+      </aside> */}
       <aside className="widget recent_posts">
         <h3 className="widget_title">Latest Posts</h3>
         <div className="meipaly_post_widget">

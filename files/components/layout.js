@@ -30,8 +30,9 @@ const Layout = ({ PageTitle, children }) => {
     <Fragment>
       <Head>
         <title>
-          {PageTitle} 
+          {PageTitle}
         </title>
+
       </Head>
       <div id="wrapper">{children}</div>
       {true === searchStatus ? <SearchPopup /> : null}

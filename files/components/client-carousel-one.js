@@ -6,17 +6,23 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Pagination } from "swiper";
 
 import "swiper/swiper-bundle.min.css";
+import { useRouter } from 'next/router'
 
 SwiperCore.use([Pagination]);
 
-const ClientCarouselOne = () => {
+const ClientCarouselOne = ({ payload }) => {
+  const router = useRouter()
   const { sectionContent, items } = ClientCarouselData;
   const { title, subTitle, text } = sectionContent;
 
   const carouselOptions = {
     spaceBetween: 0,
     loop: true,
-    slidesPerView: 1,
+    slidesPerView: 4,
+    autoplay: {
+      delay: 5000,
+      pauseOnMouseEnter: true
+    },
     pagination: {
       el: "#client-carousel-pagination",
       type: "bullets",
@@ -25,8 +31,8 @@ const ClientCarouselOne = () => {
     breakpoints: {
       0: {
         spaceBetween: 0,
-        slidesPerView: 2,
-        slidesPerGroup: 2
+        slidesPerView: 1,
+        slidesPerGroup: 1
       },
       576: {
         spaceBetween: 30,
@@ -48,23 +54,23 @@ const ClientCarouselOne = () => {
 
   return (
     <section className="commonSection client">
-      <Container>
+      {payload ? <Container>
         <Row>
           <Col lg={12} className="text-center">
-            <h4 className="sub_title">{subTitle}</h4>
-            <h2 className="sec_title">{title}</h2>
-            <p className="sec_desc">{text}</p>
+            <h4 className="sub_title">{payload.name[router.locale]}</h4>
+            <h2 className="sec_title">{payload.categories[0].name[router.locale]}</h2>
+            <p className="sec_desc">{payload.description[router.locale]}</p>
           </Col>
         </Row>
         <Row>
           <Col lg={12}>
             <Swiper className="client_slider" {...carouselOptions}>
-              {items.map(({ url, image }, index) => (
-                <SwiperSlide key={index}>
+              {payload.categories[0].nodes.map((item) => (
+                <SwiperSlide key={item.id}>
                   <div className="singleClient">
-                    <Link href={url}>
+                    <Link href={"#"}>
                       <a>
-                        <img src={image} alt="" />
+                        <img src={`http://backend.test.ikoniks.de/${item.attachment}`} alt="" />
                       </a>
                     </Link>
                   </div>
@@ -77,7 +83,7 @@ const ClientCarouselOne = () => {
             </Swiper>
           </Col>
         </Row>
-      </Container>
+      </Container> : null}
     </section>
   );
 };

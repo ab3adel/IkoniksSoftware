@@ -17,14 +17,15 @@ import SearchContextProvider from "@/context/search-context";
 import MenuContextProvider from "@/context/menu-context";
 import HeaderTwo from "@/components/header-two";
 import SliderTwo from "@/components/slider-two";
-import {fetchHome} from '../lib/fetchData'
-const HomeTwo = ({data}) => {
-let {payload} =data
+import { fetchHome } from '../lib/fetchData'
+const HomeTwo = ({ data }) => {
+  let { payload } = data
   return (
     <MenuContextProvider>
       <SearchContextProvider>
         <Layout PageTitle="Home Two">
-          <HeaderTwo />
+
+          {/* <HeaderTwo />
           <SliderTwo paylad={payload[0]} />
           <CallToActionOne extraClassName="ready_2" buttonClass="red_bg" />
           <ServiceHomeTwo />
@@ -37,7 +38,7 @@ let {payload} =data
           <BlogHome />
           <GoogleMap extraClass="contact-page" />
           <CallToActionTwo />
-          <ContactInfos />
+          <ContactInfos /> */}
           <Footer />
         </Layout>
       </SearchContextProvider>
@@ -46,11 +47,11 @@ let {payload} =data
 };
 
 export default HomeTwo;
-export async function getStaticProps () {
-  
+export async function getStaticProps() {
+
   let data = await fetchHome()
 
   return {
-    props :{data}
+    props: { data }
   }
 }

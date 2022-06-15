@@ -1,51 +1,58 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { PortfolioDetailsData } from "@/data";
-const ProtfolioDetails = () => {
+import { useRouter } from 'next/router'
+import { useTranslation } from 'next-i18next'
+const ProtfolioDetails = ({ data, cats }) => {
+  const { t } = useTranslation('common')
+  const router = useRouter()
   const {
     gallery,
-    title,
-    text,
+
+
     client,
-    categories,
+
     date,
     socials
   } = PortfolioDetailsData;
+  const { title, attachment, body, category_id } = data
+  let categories = ["All", "Development"]
   return (
     <section className="commonSection porfolioDetail">
       <Container>
         <Row>
           <Col lg={8} md={7} sm={12}>
-            {gallery.map(({ image }, index) => (
+            {/* {gallery.map(({ image }, index) => (
               <div className="portDetailThumb" key={index}>
                 <img alt="portDetailThumb" src={image} />
               </div>
-            ))}
+            ))} */}
+            <div className="portDetailThumb"  >
+              <img alt="portDetailThumb" src={`http://backend.test.ikoniks.de/${attachment}`} />
+            </div>
           </Col>
+
           <Col lg={4} md={5} sm={12}>
             <div className="singlePortfoio_content">
-              <h3>{title}</h3>
-              <p>{text}</p>
+              <h3>{title[router.locale]}</h3>
+              <p>{body ? body[router.locale] : ''}</p>
             </div>
-            <div className="singlePortfoio_content">
+            {/* <div className="singlePortfoio_content">
               <h4>Clients:</h4>
               <p>{client}</p>
-            </div>
+            </div> */}
             <div className="singlePortfoio_content">
-              <h4>Category:</h4>
+              <h4>{t("Category")}:</h4>
               <p>
-                {categories.map(({ name, url }, index) => (
-                  <a key={index} href={url}>
-                    {name},
-                  </a>
-                ))}
+
+                {cats.find(cat => cat.id == category_id).name[router.locale]}
               </p>
             </div>
-            <div className="singlePortfoio_content">
+            {/* <div className="singlePortfoio_content">
               <h4>Date:</h4>
               <p>{date}</p>
-            </div>
-            <div className="singlePortfoio_content">
+            </div> */}
+            {/* <div className="singlePortfoio_content">
               <h4>Follow:</h4>
               <ul>
                 {socials.map(({ name, url }, index) => (
@@ -54,7 +61,7 @@ const ProtfolioDetails = () => {
                   </li>
                 ))}
               </ul>
-            </div>
+            </div> */}
           </Col>
         </Row>
       </Container>

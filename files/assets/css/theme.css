@@ -54,14 +54,14 @@ License URI:
   top: 0;
   width: 100%;
   z-index: 5;
-  background: transparent;
-  padding: 39px 40px 0 45px;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  padding: 25px 40px 0 45px;
+  background: rgba(0, 0, 0, .35);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 .logo {
   text-align: left;
-  padding: 0 0 39px;
+  padding: 0 0 25px;
 
 }
 
@@ -108,7 +108,7 @@ License URI:
   list-style: none;
   display: inline-block;
   line-height: 0.8;
-  padding: 0 20px 53px;
+  padding: 0 20px 25px;
   position: relative;
 }
 
@@ -119,6 +119,17 @@ License URI:
   line-height: 0.8;
   text-transform: uppercase;
   position: relative;
+}
+
+.mainmenu ul li a.langItem {
+  margin-left: -12px;
+  /* padding-left: 12px; */
+  border-left: 1px solid;
+  border: 1px solid;
+  padding: 12px;
+  font-size: 2rem;
+  border-radius: 4px;
+  background: #00000061;
 }
 
 .mainmenu ul li a:after {
@@ -205,7 +216,7 @@ License URI:
 
 .navigator {
   position: relative;
-  padding: 6px 0 37px;
+  padding: 6px 0 20px;
 }
 
 .navigator a {
@@ -259,6 +270,7 @@ License URI:
   width: 100%;
   z-index: 999;
   border: none;
+  border-bottom: 2px solid #03aac1;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
@@ -535,7 +547,7 @@ License URI:
 / 4. About Agency
 ------------------------------------------------------*/
 .ab_agency {
-  padding-bottom: 147px;
+  /* padding-bottom: 147px; */
 }
 
 .PR_79 {
@@ -551,6 +563,7 @@ License URI:
   right: 0;
   top: 0;
   z-index: 1;
+
 }
 
 .ab_img1 img {
@@ -562,28 +575,46 @@ License URI:
 }
 
 .ab_img2 {
-  position: absolute;
+  /* position: absolute;
   left: 0;
   top: 100px;
-  z-index: 2;
+  z-index: 2; */
+  position: relative;
+  left: 0;
+  /* top: 100px; */
+  /* z-index: 2; */
+  z-index: -1;
+  padding: 0px;
 }
 
 .ab_img2:after {
   position: absolute;
-  top: -40px;
-  left: 40px;
+  top: 0;
+  left: 0;
   content: "";
-  border: 10px solid #e62b4a;
-  width: 470px;
-  height: 458px;
+  border: 10px solid #03aac1;
+  width: 100%;
+  height: 100%;
 }
 
 .ab_img2 img {
+  /* max-width: 100%;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  display: block;
+  margin: 0px !important;
+  box-shadow: -2px 4px 35px 0px rgb(0 0 0 / 30%);
+  padding: 0px; */
   max-width: 100%;
-  height: auto;
-  -webkit-box-shadow: -2px 4px 35px 0px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: -2px 4px 35px 0px rgba(0, 0, 0, 0.3);
-  box-shadow: -2px 4px 35px 0px rgba(0, 0, 0, 0.3);
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  display: block;
+  margin: 0px !important;
+  box-shadow: -2px 0px 35px 0px rgb(23 99 116);
+  padding: 0px;
 }
 
 /*----------------------------------------------------
@@ -708,7 +739,8 @@ License URI:
 .singlefolio img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 350px;
+  object-fit: fill;
   -webkit-transition: all 0.4s ease-out;
   transition: all 0.4s ease-out;
 }
@@ -731,7 +763,7 @@ License URI:
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(230, 43, 74, 0.8);
+  background: #00b2ca6e;
   overflow: hidden;
   width: 0;
   height: 100%;
@@ -1145,7 +1177,7 @@ License URI:
 / 10. Our Clients Section
 ------------------------------------------------------*/
 .client {
-  background: #f4f4f4;
+  background: #303030;
 }
 
 .singleClient {
@@ -1168,15 +1200,19 @@ License URI:
 }
 
 .singleClient a img {
-  max-width: 119px;
-  height: auto;
+  max-width: 90%;
+  width: 55%;
+  height: 100%;
+  position: absolute;
+  object-fit: contain;
+  padding: 7px;
   position: absolute;
   left: 0;
   top: 0;
   right: 0;
   bottom: 0;
   margin: auto;
-  opacity: 0.4;
+  opacity: 1;
   display: inline-block !important;
   transition: all ease 500ms;
   -moz-transition: all ease 500ms;
@@ -1192,7 +1228,7 @@ License URI:
   bottom: 0;
   margin: auto 0;
   content: "";
-  background: #e62b4a;
+  background: #03aac1;
   visibility: hidden;
   opacity: 0;
   transition: all ease 500ms;
@@ -1244,7 +1280,7 @@ License URI:
 .client_slider .swiper-pagination-bullet:hover,
 .client_slider .owl-controls .owl-dots .owl-dot.active span,
 .client_slider .owl-controls .owl-dots .owl-dot:hover span {
-  background: #000000;
+  background: #03aac1;
 }
 
 .client_slider .swiper-pagination {
@@ -1369,6 +1405,23 @@ License URI:
   position: relative;
   background: #fff;
   margin: 0 0 51px;
+  border: 2px solid #03aac1;
+  transform: scaleY(1);
+  box-shadow: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.latestBlogItem:hover {
+  transform: scaleY(1.01);
+  border: 4px solid #03aac1;
+  box-shadow: 0px 3px 54px -5px white;
+}
+
+.latestBlogItem:hover .lbi_details {
+
+  top: -12px;
+  background: #d9d9d9;
+
 }
 
 .lbi_thumb {
@@ -1379,16 +1432,30 @@ License URI:
 .lbi_thumb img {
   width: 100%;
   height: auto;
+
+  transition: all 3s ease;
+}
+
+.latestBlogItem:hover .lbi_thumb img {
+
+  transform: scale(1.2);
+
 }
 
 .lbi_details {
   text-align: left;
   margin: 0 10px;
   position: relative;
+  top: 0px;
   margin-top: -20px;
   padding: 30px 30px 0;
   background: #fff;
   z-index: 3;
+  transition: all 0.3s ease-in-out;
+}
+
+.latestBlogItem:hover .lbi_details:hover {
+  background: #303030;
 }
 
 .lbi_details .lbid_date {
@@ -1408,8 +1475,8 @@ License URI:
 }
 
 .lbi_details .lbid_date:hover {
-  color: #fff;
-  background: #e62b4a;
+  color: #03aac1;
+  background: #fff;
 }
 
 .lbi_details h2 {
@@ -1422,11 +1489,11 @@ License URI:
 }
 
 .lbi_details h2 a {
-  color: #000;
+  color: #03aac1;
 }
 
 .lbi_details h2 a:hover {
-  color: #e62b4a;
+  color: #fff;
 }
 
 .lbi_details .learnM {
@@ -1443,7 +1510,7 @@ License URI:
   width: 0;
   height: 1px;
   content: "";
-  background: #e62b4a;
+  background: #fff;
   position: absolute;
   left: 0;
   right: 0;
@@ -1458,14 +1525,14 @@ License URI:
 }
 
 .lbi_details .learnM:hover {
-  color: #e62b4a;
+  color: #fff;
 }
 
 /*----------------------------------------------------
 / 13. Ready Section
 ------------------------------------------------------*/
 .ready {
-  background: url(../images/bg/4.jpg) no-repeat center center / cover;
+  background: url(../images/bg/6.jpg) no-repeat center center / cover;
 }
 
 .ready .sec_title {
@@ -1607,23 +1674,23 @@ License URI:
   width: 100%;
   background: #fff;
   border: 2px solid #f4f4f4;
-  padding: 50px 65px 50px;
+  padding: 24px 49px 25px;
   transition: all ease 500ms;
   -moz-transition: all ease 500ms;
   -webkit-transition: all ease 500ms;
 }
 
 .icon_box_2:after {
-  width: 4px;
+  width: 6px;
   height: 0;
   position: absolute;
   content: "";
-  right: -1px;
+  right: -2px;
   top: 0;
   bottom: 0;
   margin: auto 0;
   content: "";
-  background: #e62b4a;
+  background: #00abc2;
   visibility: hidden;
   opacity: 0;
   z-index: 3;
@@ -1643,11 +1710,26 @@ License URI:
 
 .icon_box_2 p {
   margin: 0 0 31px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  color: #03aac1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .icon_box_2 .iconWrap {
   position: relative;
   margin: 0 0 44px;
+}
+
+.icon_box_2 .iconWrap .serviceIMG {
+  position: relative;
+  max-width: 100%;
+  width: 100%;
+  height: 100px;
+  object-fit: contain;
+
 }
 
 .icon_box_2 .iconWrap:after {
@@ -2298,6 +2380,9 @@ License URI:
   width: 100%;
   height: auto;
   margin-bottom: 57px;
+  max-height: 381px;
+  object-fit: cover;
+  object-position: center;
 }
 
 .serviceArea h2 {
@@ -4220,6 +4305,20 @@ textarea.input-form:focus {
 
 .main-slider [class*="swiper-button-"]:hover {
   background-color: #fff;
+}
+
+.impress-Section {
+  padding-top: 130px;
+  padding-bottom: 75px;
+}
+
+.impress-Section h2,
+.impress-Section a {
+  color: #01b1c8;
+}
+
+.impress-Section p {
+  font-weight: 300;
 }
 
 @media (min-width: 768px) {

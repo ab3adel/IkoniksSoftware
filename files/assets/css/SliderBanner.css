@@ -23,6 +23,7 @@
     border: 2px solid white;
     transition: all 0.3s ease-in-out;
     border-radius: 50%;
+    background: transparent;
 
 }
 
@@ -116,8 +117,12 @@
     position: absolute !important;
 }
 
+/* #tsparticles {
+    position: absolute !important;
+} */
+
 .slideTitle {
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: bolder;
     width: fit-content;
     pointer-events: none;
@@ -126,6 +131,7 @@
 
 .slideText {
     width: fit-content;
+    font-size: 2rem;
     font-family: 'Oswald', sans-serif;
     padding: 0 1rem;
     margin: 0.5rem 1rem;
@@ -194,7 +200,7 @@
 
     .slideText {
         font-size: 2rem;
-        font-family: 'Raleway1';
+        /* font-family: 'Raleway1'; */
         font-weight: 400;
     }
 }
@@ -209,11 +215,12 @@
     .slideTitle {
         font-size: 2rem;
         width: 300px;
+        margin-top: 1rem;
 
     }
 
     .slideText {
-        font-size: 1rem;
+        font-size: 1.5rem;
         font-weight: 100;
         width: 300px;
     }

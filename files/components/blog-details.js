@@ -5,7 +5,7 @@ import SinglePostCard from "@/components/single-post-card";
 
 const BlogDetails = () => {
   return (
-    <section className="commonSection blogDetails">
+    <section className="commonSection blogDetails pb-4">
       <Container>
         <Row>
           <Col lg={8}>
@@ -15,6 +15,7 @@ const BlogDetails = () => {
             <BlogSidebar />
           </Col>
         </Row>
+
       </Container>
     </section>
   );

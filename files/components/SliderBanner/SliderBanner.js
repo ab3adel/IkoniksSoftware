@@ -13,12 +13,16 @@ import Fade from 'react-reveal/Fade';
 
 import Slider from 'react-slick';
 // import styles from './Button.module.css'
-import { useTranslation } from 'react-i18next';
+
+import { useRouter } from 'next/router'
+
+import { useTranslation } from 'next-i18next'
 
 const SliderBanner = ({ data }) => {
-  const [t, i18n] = useTranslation();
-  const [changeSlide, setChangeSlide] = useState(false)
 
+  const [changeSlide, setChangeSlide] = useState(false)
+  const router = useRouter()
+  const { t } = useTranslation('common')
   useEffect(() => {
 
     var scene = document.getElementById('scene');
@@ -38,14 +42,15 @@ const SliderBanner = ({ data }) => {
     for (var i = 0; i < paralaxClass.length; i++) {
       var paralaxClass2 = new Parallax(paralaxClass.item(i), { relativeInput: true });
     }
+    document.querySelector('#tsparticles>.canvasClass').style.position = "absolute "
   })
 
 
-  const textBylang = (fetchedData, index, key) => {
-    // console.log('text', fetchedData[index])
-    if (i18n.language == 'de') { return fetchedData[index][key].gr }
-    else { return fetchedData[index][key]['en'] }
-  }
+  // const textBylang = (fetchedData, index, key) => {
+
+  //   if (i18n.language == 'de') { return fetchedData[index][key].gr }
+  //   else { return fetchedData[index][key]['en'] }
+  // }
 
 
   const scroll = (ref) => {
@@ -302,7 +307,8 @@ const SliderBanner = ({ data }) => {
                       {/* <Rotate appear spy={changeSlide} bottom left duration={3000}> */}
                       <h1 className='colorWhite slideTitle '>
                         <Zoom appear spy={changeSlide} right duration={3000} >
-                          {textBylang(data, index, 'title')}
+                          {/* {textBylang(data, index, 'title')} */}
+                          {slide.title[router.locale]}
                         </Zoom>
                       </h1>
                       {/* </Rotate> */}
@@ -316,7 +322,9 @@ const SliderBanner = ({ data }) => {
                   >
                     <div data-depth="0.1" >
                       <h3 className='colorWhite  slideText'> <Zoom spy={changeSlide} right duration={3000} delay={1000} >
-                        {textBylang(data, index, 'body')}
+                        {/* {textBylang(data, index, 'body')}
+                         */}
+                        {slide.body[router.locale]}
                       </Zoom>
                       </h3>
 

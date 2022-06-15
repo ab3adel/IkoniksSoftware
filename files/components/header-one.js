@@ -4,8 +4,13 @@ import { Col, Container, Row } from "react-bootstrap";
 import { SearchContext } from "@/context/search-context";
 import { MenuContext } from "@/context/menu-context";
 import Link from "next/link";
+import { useRouter } from 'next/router'
 
+import { useTranslation } from 'next-i18next'
+// import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 const HeaderOne = () => {
+  const router = useRouter()
+  const { t } = useTranslation('common')
   const [sticky, setSticky] = useState(false);
   const [animate, setAnimate] = useState(false);
   const { searchStatus, updateSearchStatus } = useContext(SearchContext);
@@ -26,12 +31,12 @@ const HeaderOne = () => {
       setSticky(false);
     }
   };
-  const startAnimationTimer=()=>{
+  const startAnimationTimer = () => {
     setAnimate(true)
-  
-  setTimeout(()=>setAnimate(false),5000)
+
+    setTimeout(() => setAnimate(false), 5000)
   }
- 
+
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -39,16 +44,15 @@ const HeaderOne = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [sticky]);
- useEffect(()=>{
-setInterval(()=>    startAnimationTimer(),15000)
-  
- },[])
+  useEffect(() => {
+    setInterval(() => startAnimationTimer(), 15000)
 
+  }, [])
+  console.log('router', router)
   return (
     <header
-      className={`header_01 ${
-        true === sticky ? "fixedHeader animated flipInX" : null
-      }`}
+      className={`header_01 ${true === sticky ? "fixedHeader animated flipInX" : null
+        }`}
       id="header"
     >
       <Container fluid>
@@ -59,8 +63,8 @@ setInterval(()=>    startAnimationTimer(),15000)
                 <a>
                   IK
                   <div className="twoChars"
-                    style={{animationName:animate?'circleMotionTwoChars':''}} >
-                       ON
+                    style={{ animationName: animate ? 'circleMotionTwoChars' : '' }} >
+                    ON
                   </div>
                   IKS
                 </a>
@@ -72,43 +76,68 @@ setInterval(()=>    startAnimationTimer(),15000)
               <ul>
                 {NavLinks.map((links, index) => {
                   return (
-                    <li
-                      key={index}
-                      className={`${
-                        undefined !== links.subItems
-                          ? "menu-item-has-children"
-                          : ""
-                      }`}
-                    >
-                      <Link href={links.url}>
-                        <a>{links.name}</a>
-                      </Link>
-                      {undefined !== links.subItems ? (
-                        <ul className="sub-menu">
-                          {links.subItems.map((subLinks, index) => (
-                            <li key={index}>
-                              <Link href={subLinks.url}>
-                                <a>{subLinks.name}</a>
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      ) : null}
-                    </li>
+                    <React.Fragment key={index} >
+                      {links.name === "lang" ?
+
+                        <li>
+                          <Link
+                            href={router.asPath}
+                            locale={router.locale === 'en' ? 'gr' : 'en'}
+                          >
+                            <a className="langItem" >
+                              {router.locale === 'en' ? 'DE' : 'EN'}
+                            </a>
+                          </Link>
+                        </li>
+                        :
+                        <li
+
+                          className={`${undefined !== links.subItems
+                            ? "menu-item-has-children"
+                            : router.asPath == links.url ? 'active' : ''
+                            }`}
+                        >
+                          <Link href={links.url}>
+                            <a>{t(links.name)}</a>
+                          </Link>
+                          {undefined !== links.subItems ? (
+                            <ul className="sub-menu">
+                              {links.subItems.map((subLinks, index) => (
+                                <li key={index}>
+                                  <Link href={subLinks.url}>
+                                    <a>{subLinks.name}</a>
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          ) : null}
+                        </li>
+                      }</React.Fragment    >
+
                   );
                 })}
+
               </ul>
             </nav>
           </Col>
           <Col lg={2} md={2} sm={4} className="col-6">
             <div className="navigator text-right">
-              <a
+              {/* <a
                 className="search searchToggler"
                 href="#"
                 onClick={handleSearchClick}
               >
                 <i className="mei-magnifying-glass"></i>
-              </a>
+              </a> */}
+              {/* <Link
+                href={router.asPath}
+                locale={router.locale === 'en' ? 'gr' : 'en'}
+              >
+                <a className="search searchToggler" >
+                  {router.locale === 'en' ? 'DE' : 'EN'}
+                </a>
+              </Link> */}
+
               <a
                 href="#"
                 className="menu mobilemenu d-none d-md-none d-lg-none"
@@ -127,8 +156,13 @@ setInterval(()=>    startAnimationTimer(),15000)
           </Col>
         </Row>
       </Container>
-    </header>
+    </header >
   );
 };
 
 export default HeaderOne;
+// export const getStaticProps = async ({ locale }) => ({
+//   props: {
+//     ...await serverSideTranslations(locale, ['common']),
+//   },
+// })

@@ -12,22 +12,25 @@ import FeatureTabOne from "@/components/feature-tab-1";
 import HeaderOne from "@/components/header-one";
 import SearchContextProvider from "@/context/search-context";
 import MenuContextProvider from "@/context/menu-context";
-import {fetchAbout} from '../lib/fetchData'
-const AboutPage = ({data}) => {
-const {payload}= data 
+import { fetchAbout } from '../lib/fetchData'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useTranslation } from 'next-i18next'
+const AboutPage = ({ data }) => {
+  const { payload } = data
 
+  const { t } = useTranslation('common')
   return (
     <MenuContextProvider>
       <SearchContextProvider>
         <Layout PageTitle="About Us Page">
           <HeaderOne />
-          <PageBanner title="About Us" name="About" />
-          <AboutOne payload={null}/>
-          <TestimonialsOneCarousel />
-          <SubscribeForm />
+          <PageBanner title={t("About")} name="About" />
+          <AboutOne payload={payload[1]} />
+          {/* <TestimonialsOneCarousel /> */}
+          {/* <SubscribeForm /> */}
           {/* <TeamCarousel /> */}
-          <VideoOne />
-          <FeatureTabOne />
+          {/* <VideoOne />
+          <FeatureTabOne /> */}
           <CallToActionOne extraClassName="ready" />
           <Footer />
         </Layout>
@@ -37,11 +40,11 @@ const {payload}= data
 };
 
 export default AboutPage;
-export async function getStaticProps () {
-  
+export async function getStaticProps({ locale }) {
+
   let data = await fetchAbout()
 
   return {
-    props :{data}
+    props: { ...await serverSideTranslations(locale, ['common']), data }, revalidate: 300,
   }
 }

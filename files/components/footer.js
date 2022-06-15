@@ -1,25 +1,28 @@
 import React from "react";
 import { LogoImage } from "@/data";
 import Link from 'next/link'
+import { useTranslation } from 'next-i18next'
+
 const Footer = () => {
   const { light } = LogoImage;
+  const { t } = useTranslation('common')
   return (
     <footer className="footer_1">
       <div className="container">
         <div className="row">
           <div className="col-lg-5 col-sm-6 col-md-5">
             <aside className="widget aboutwidget">
-            <div className="logo">
-              <Link href="/">
-                <a>
-                  IK
-                  <div className="twoChars"
+              <div className="logo">
+                <Link href="/">
+                  <a>
+                    IK
+                    <div className="twoChars"
                     >
-                       ON
-                  </div>
-                  IKS
-                </a>
-              </Link>
+                      ON
+                    </div>
+                    IKS
+                  </a>
+                </Link>
               </div>
               <p>
                 Welcome to our web design agency. Lorem ipsum is simply free
@@ -31,9 +34,9 @@ const Footer = () => {
           </div>
           <div className="col-lg-4 col-sm-4 col-md-4">
             <aside className="widget contact_widgets">
-              <h3 className="widget_title">contact</h3>
+              <h3 className="widget_title">{t("Contact")} </h3>
               <p>
-              Filderbahnplatz.3570567 Stuttgart
+                Filderbahnplatz.3570567 Stuttgart
                 <br />
                 Germany
               </p>
@@ -45,7 +48,7 @@ const Footer = () => {
           </div>
           <div className="col-lg-3 col-sm-2 col-md-3">
             <aside className="widget social_widget">
-              <h3 className="widget_title">social</h3>
+              <h3 className="widget_title">{t("Social")} </h3>
               <ul>
                 <li>
                   <a href="#">

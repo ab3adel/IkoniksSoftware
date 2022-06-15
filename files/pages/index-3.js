@@ -26,8 +26,9 @@ const HomeThree = () => {
     <MenuContextProvider>
       <SearchContextProvider>
         <Layout PageTitle="Home Three">
+
           <HeaderOne />
-          <SliderThree />
+          {/* <SliderThree />
           <AboutTwo />
           <VideoTwo />
           <SubscribeForm />
@@ -36,13 +37,12 @@ const HomeThree = () => {
           <PortfolioHome />
           <FunfactOne />
           <TrustedClient extraClassName="pb_120" />
-          {/* <TeamCarousel /> */}
           <ClientCarouselOne />
           <ParallaxOne />
           <BlogHome />
           <GoogleMap extraClass="contact-page" />
           <CallToActionTwo />
-          <ContactInfos />
+          <ContactInfos /> */}
           <Footer />
         </Layout>
       </SearchContextProvider>

@@ -1,7 +1,10 @@
 import React, { Fragment } from "react";
+import { useTranslation } from 'next-i18next'
 
 const SectionTitle = ({ data }) => {
   const { title, subTitle, text } = data;
+  const { t } = useTranslation('common')
+
   return (
     <Fragment>
       <h4 className="sub_title">{subTitle}</h4>

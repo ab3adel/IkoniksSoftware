@@ -3,8 +3,12 @@ import Parallax from 'parallax-js'
 import Zoom from 'react-reveal/Zoom';
 import Fade from 'react-reveal/Fade';
 
-const ServicesSection = () => {
+import Link from "next/link";
+import { useRouter } from 'next/router'
+
+const ServicesSection = ({ data }) => {
     const [refresh, setRefresh] = React.useState(true)
+    const router = useRouter()
     React.useEffect(() => {
         // setRefresh(!refresh)
     })
@@ -12,11 +16,37 @@ const ServicesSection = () => {
 
 
         <section className="c-section">
-            <h2 className="c-section__title"><span>Our Services</span></h2>
+            <h2 className="c-section__title"><span data-content={data && data.description[router.locale]}>{data && data.name[router.locale]}</span></h2>
             <ul className="c-services">
+                {data && data.categories && data.categories.find(ele => ele.id === 38).nodes.map((item, index) => (
+                    <React.Fragment key={item.id} >
+                        {
+                            item.id !== 90 ?
+                                <Zoom cascade ssrReveal={true} ssrFadeout={true} >
 
+                                    <li className="c-services__item  "  >
+                                        <h3 >{item.title[router.locale]}</h3>
+                                        <p>{item.body[router.locale]}</p>
 
-                <Fade cascade >
+                                        <figure class="effect-ming">
+                                            <img src={`http://backend.test.ikoniks.de/${item.background}`} alt="img09" class="img-fluid" />
+                                            <figcaption>
+                                                <p>VIEW PAGE</p>
+                                                <Link href={'/service-details?service=' + item.id}>
+
+                                                    <a  >View more</a>
+                                                </Link>
+                                            </figcaption>
+                                        </figure>
+                                    </li>
+                                </Zoom>
+                                :
+                                null
+                        }
+                    </React.Fragment>
+                ))}
+
+                {/* <Fade cascade >
                     <li className="c-services__item">
                         <h3>UX Auditing</h3>
                         <p>If you are unsure of how your app behaves, we can help by doing a detailed UX audit that will highlight most of the issues in your product. From there, we can take it further and fix all issues.</p>
@@ -92,7 +122,7 @@ const ServicesSection = () => {
                             </figcaption>
                         </figure>
                     </li>
-                </Zoom>
+                </Zoom> */}
                 {/* <Fade cascade >
                     <li className="c-services__item">
                         <h3>UX Research</h3>

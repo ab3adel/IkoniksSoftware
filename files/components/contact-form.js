@@ -11,7 +11,7 @@ const ContactForm = ({ fields, handleField, sendMessage, loading }) => {
   }
 
   return (
-    <section className="commonSection ContactPage">
+    <section className="commonSection ContactPage blogSection">
       <div className="container">
         <div className="row">
           <div className="col-lg-12 text-center">

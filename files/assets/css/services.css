@@ -258,7 +258,7 @@
  }
 
  .c-section span:after {
-     content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae accusamus eaque necessitatibus modi facilis aspernatur ut natus saepe!";
+     content: attr(data-content);
      display: block;
      font-size: 1.4rem;
      position: absolute;
@@ -351,6 +351,8 @@
      max-width: 100%;
      height: auto;
      width: 100%;
+     height: 23rem;
+     object-fit: cover;
  }
 
  @media (min-width: 40.625em) {
@@ -404,8 +406,8 @@
 
  @media (min-width: 62em) {
      .c-services__item:nth-of-type(3) {
-         grid-column: 1 / span 4;
-         grid-row: 2;
+         grid-column: 9 / span 4;
+         grid-row: 1;
      }
  }
 
@@ -418,7 +420,9 @@
 
  @media (min-width: 62em) {
      .c-services__item:nth-of-type(4) {
-         grid-column: 5 / span 4;
+
+         grid-column: 1 / span 4;
+
          grid-row: 2;
      }
  }
@@ -433,7 +437,7 @@
 
  @media (min-width: 62em) {
      .c-services__item:nth-of-type(5) {
-         grid-column: 9 /span 4;
+         grid-column: 5 / span 4;
          grid-row: 2;
      }
  }

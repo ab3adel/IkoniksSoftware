@@ -14,13 +14,13 @@ import ServiceTwo from "@/components/service-two";
 import AboutTwo from "@/components/about-two";
 import VideoTwo from "@/components/video-two";
 
-import ServicesSection from "@/components/ServicesSection";
+// import ServicesSection from "@/components/ServicesSection";
 import HeaderOne from "@/components/header-one";
 import SearchContextProvider from "@/context/search-context";
 import MenuContextProvider from "@/context/menu-context";
 // import Portfolio from "@/components/Portfolio";
 import SliderBanner from "@/components/SliderBanner/SliderBanner";
-import { fetchHome, fetchServices, fetchSections } from '../lib/fetchData'
+import { fetchHome, fetchServices, fetchPosts, fetchSections } from '../lib/fetchData'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 
@@ -28,13 +28,14 @@ import dynamic from 'next/dynamic'
 // import  from ;
 const CustomCursor = dynamic(async () => await import('custom-cursor-react'), { ssr: false },)
 const Portfolio = dynamic(async () => await import("@/components/Portfolio"), { ssr: false },)
-const HomeOne = ({ sections }) => {
-
+const ServicesSection = dynamic(async () => await import("@/components/servicesSection"), { ssr: false },)
+const HomeOne = ({ sections, posts }) => {
+  let homePostes = posts.payload.slice(0, 3)
   // let portfolioSection = payload.filter(ele => ele.title.en === 'OUR PORTFOLIO')
   let about = sections.payload.find(ele => ele.id === 14).categories.find(ele => ele.id === 14).nodes[0]
   let portfolioSection = sections.payload.find(ele => ele.id === 16).categories.find(ele => ele.id === 16).nodes
   let sliderData = sections.payload.find(ele => ele.id === 13).categories.find(ele => ele.id === 18).nodes
-  let servicesData = sections.payload.find(ele => ele.id === 19).categories.find(ele => ele.id === 38).nodes
+  let servicesData = sections.payload.find(ele => ele.id === 19)
   let clients = sections.payload.find(ele => ele.id === 27)
 
   return (
@@ -62,12 +63,12 @@ const HomeOne = ({ sections }) => {
           <AboutTwo payload={about} />
 
           {/* <ServiceTwo data={servicesData} /> */}
-          <ServicesSection />
+          <ServicesSection data={servicesData} />
 
           {/* <VideoTwo /> */}
           {/* <PortfolioHome payload={portfolioSection} /> */}
           <Portfolio withTitle={true} />
-          <BlogHome />
+          <BlogHome posts={homePostes} />
           <ClientCarouselOne payload={clients} />
 
 
@@ -91,11 +92,11 @@ export default HomeOne;
 
 export async function getStaticProps({ locale }) {
 
-  // let data = await fetchHome()
+  let posts = await fetchPosts()
   // let services = await fetchServices()
   let sections = await fetchSections()
   return {
-    props: { ...await serverSideTranslations(locale, ['common']), sections }, revalidate: 300,
+    props: { ...await serverSideTranslations(locale, ['common']), sections, posts }, revalidate: 300,
   }
 }
 // export const getStaticProps = async ({ locale }) => ({

@@ -14,7 +14,7 @@ const ServiceDetailsContent = ({ service, data }) => {
       {active ? <>
         <img src={active.background ? `http://backend.test.ikoniks.de/${active.background}` : serviceS1} alt="" />
         <h2>{active.title[router.locale]} </h2>
-        <p>{active.body[router.locale]}
+        <p dangerouslySetInnerHTML={{ __html: active.body[router.locale] ? active.body[router.locale] : "title 2 " }}>{ }
         </p>
       </>
         : null

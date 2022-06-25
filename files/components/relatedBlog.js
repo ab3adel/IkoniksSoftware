@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.min.css";
 
 import { useRouter } from 'next/router'
-const RelatedBlog = ({ }) => {
+const RelatedBlog = ({ posts }) => {
     const router = useRouter()
     const carouselOptions = {
         spaceBetween: 0,
@@ -38,32 +38,38 @@ const RelatedBlog = ({ }) => {
 
 
     return (
-        <section className="commonSection relatedPortfolio">
-            <div className="container">
-                <div className="row">
-                    <div className="col-lg-12 text-center">
+        <>
+            {posts ?
+                <section className="commonSection relatedPortfolio">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-lg-12 text-center">
 
-                        <h2 className="sec_title">related Blogs</h2>
+                                <h2 className="sec_title">related Blogs</h2>
 
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-lg-12">
+                                <Swiper className="related_slider" {...carouselOptions}>
+                                    {posts.map((post, index) => (
+                                        <SwiperSlide key={post.id}>
+                                            <BlogCard data={post} />
+                                        </SwiperSlide>
+                                    ))}
+                                    <div
+                                        className="swiper-pagination"
+                                        id="client-carousel-pagination"
+                                    ></div>
+                                </Swiper>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div className="row">
-                    <div className="col-lg-12">
-                        <Swiper className="related_slider" {...carouselOptions}>
-                            {BlogData.map((post, index) => (
-                                <SwiperSlide key={index}>
-                                    <BlogCard data={post} />
-                                </SwiperSlide>
-                            ))}
-                            <div
-                                className="swiper-pagination"
-                                id="client-carousel-pagination"
-                            ></div>
-                        </Swiper>
-                    </div>
-                </div>
-            </div>
-        </section>
+                </section>
+                :
+                <></>}
+        </>
+
     );
 };
 

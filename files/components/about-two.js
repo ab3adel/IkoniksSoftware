@@ -31,7 +31,9 @@ const AboutTwo = ({ payload }) => {
           <Col lg={6} md={6} sm={12} className="PR_79" >
             <h4 className="sub_title">{t("welcom to IKONIKS SOFTWARE")}</h4>
             <h2 className="sec_title MB_45">{title ? title[router.locale] : "title"}</h2>
-            <p className="sec_desc">{body ? body[router.locale] : "title 2 "}</p>
+            <p className="sec_desc" dangerouslySetInnerHTML={{ __html: body ? body[router.locale] : "title 2 " }}>
+
+            </p>
             <Link href={"/about"}>
               <a className="common_btn red_bg">
                 <span>{t("LEARN MORE")} </span>

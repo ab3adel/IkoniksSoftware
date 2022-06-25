@@ -8,7 +8,7 @@ import TeamCarousel from "@/components/team-carousel";
 import VideoOne from "@/components/video-one";
 import SubscribeForm from "@/components/subscribe-form";
 import TestimonialsOneCarousel from "@/components/testimonials-carousel";
-import FeatureTabOne from "@/components/feature-tab-1";
+import AboutDetail from "@/components/about-detail";
 import HeaderOne from "@/components/header-one";
 import SearchContextProvider from "@/context/search-context";
 import MenuContextProvider from "@/context/menu-context";
@@ -25,7 +25,9 @@ const AboutPage = ({ data }) => {
         <Layout PageTitle="About Us Page">
           <HeaderOne />
           <PageBanner title={t("About")} name="About" />
+          <AboutDetail data={[payload[0], payload[2], payload[3]]} />
           <AboutOne payload={payload[1]} />
+
           {/* <TestimonialsOneCarousel /> */}
           {/* <SubscribeForm /> */}
           {/* <TeamCarousel /> */}

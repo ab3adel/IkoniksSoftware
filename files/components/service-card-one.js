@@ -12,7 +12,9 @@ const ServiceCardOne = ({ data }) => {
     <Zoom cascade ssrReveal={true} ssrFadeout={true} >
       <div className="icon_box_2 text-center">
         <h3>{title[router.locale]}</h3>
-        <p>{body[router.locale]}</p>
+        <p dangerouslySetInnerHTML={{ __html: body ? body[router.locale] : "title 2 " }}>
+          {/* {body[router.locale]} */}
+        </p>
         <div className="iconWrap">
           <img src={`http://backend.test.ikoniks.de/${attachment}`} className="serviceIMG"></img>
           {/* <i className={iconName}></i> */}

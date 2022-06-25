@@ -13,6 +13,8 @@ const Portfolio = ({ withTitle }) => {
   const router = useRouter()
   const [fetchedData, setfetchedData] = useState('')
   const [fetchedCats, setfetchedCats] = useState('')
+  const [refresh, setRefresh] = useState(false)
+
   const { sectionContent } = PortfolioHomeData;
   useEffect(async () => {
     const fetchCategories = async (e) => {
@@ -54,7 +56,10 @@ const Portfolio = ({ withTitle }) => {
         if (responsee.status == '204') { setfetchedData([]) }
         const response = await responsee.json();
 
-        if (response.payload) { setfetchedData(response.payload) }
+        if (response.payload) {
+          setfetchedData(response.payload)
+
+        }
       }
       catch (err) { console.log(err); }
     }
@@ -65,32 +70,48 @@ const Portfolio = ({ withTitle }) => {
   const IsotopeReact = ({ fetchedCats, fetchedData }) => {
     // init one ref to store the future isotope object
     const isotope = React.useRef()
+
     // store the filter keyword in a state
-    const [filterKey, setFilterKey] = React.useState('*')
+    const [filterKey, setFilterKey] = React.useState('')
 
     // initialize an Isotope object with configs
     React.useEffect(() => {
+
       isotope.current = new Isotope('.filter-container', {
         itemSelector: '.filter-item',
-        layoutMode: 'fitRows',
+        layoutMode: 'masonry',
       })
+      // setRefresh(!refresh)
       // cleanup
-      return () => isotope.current.destroy()
+      // fitRows
+      // return () => isotope.current.destroy()
     }, [])
 
     // handling filter key change
     React.useEffect(() => {
-      filterKey === '*'
-        ? isotope.current.arrange({ filter: `*` })
-        : isotope.current.arrange({ filter: `.${filterKey}` })
-    }, [filterKey])
+      if (filterKey && isotope.current) {
 
+        filterKey === '*' ? isotope.current.arrange({ filter: `*` })
+          : isotope.current.arrange({ filter: `.${filterKey}` })
+      }
+
+
+    }, [filterKey])
+    React.useEffect(() => {
+      if (isotope.current) {
+        setFilterKey(`cat${fetchedCats[0].id}`)
+        setTimeout(() => { setFilterKey('*'); setRefresh(true) }, 3000)
+      }
+
+      // setRefresh(!refresh)
+
+    }, [fetchedCats, fetchedData])
     const handleFilterKeyChange = key => () => setFilterKey(key)
 
     return (
       <>
-        <ul class="filter text-center mb-0 mt-60 mt-xs-30" data-aos="fade-up"
-          data-aos-duration="1200">
+        <ul class="filter text-center mb-0 mt-60 mt-xs-30"
+        >
           <li><a onClick={handleFilterKeyChange('*')} className={filterKey == '*' && "activeFilter"}>
             {t('All works')}</a></li>
           {fetchedCats && fetchedCats.map((category, index) => {
@@ -109,12 +130,14 @@ const Portfolio = ({ withTitle }) => {
         </ul>
 
         <hr />
-        <div className='container'>
-          <div className=" row filter-container">
+        <div className='container' style={{ width: '100%', maxWidth: 'none' }}>
+          <div className=" row filter-container" ref={isotope}>
             {fetchedData && fetchedData.map((item, index) => {
               return (
-                <div key={item.id} className={`col-md-6 col-lg-4 singlefolio filter-item cat${item.category_id.toString()}`}>
-                  <img src={`http://backend.test.ikoniks.de/${item.attachment}`} alt={item.title[router.locale]} />
+                <div key={item.id} className={`col-md-6 col-lg-3 singlefolio filter-item cat${item.category_id.toString()}`}>
+                  <img src={`http://backend.test.ikoniks.de/${item.attachment}`} alt={item.title[router.locale]}
+                  // style={{ height: index % 2 == 0 ? '200px' : "400px" }}
+                  />
                   <div className="folioHover">
                     <a className="cate" href="#">
 
@@ -146,9 +169,6 @@ const Portfolio = ({ withTitle }) => {
 
     <>
 
-
-
-
       <div className='section mt-5 pt-5' id='Portfolio'  >
         <div className='container'>
           <Row>
@@ -171,7 +191,8 @@ const Portfolio = ({ withTitle }) => {
           </div>
         </div>
 
-        {fetchedCats && fetchedData && <IsotopeReact fetchedCats={fetchedCats} fetchedData={fetchedData} />}
+        {fetchedCats && fetchedData && <IsotopeReact refresh={refresh}
+          setRefresh={setRefresh} fetchedCats={fetchedCats} fetchedData={fetchedData} />}
       </div>
 
     </>

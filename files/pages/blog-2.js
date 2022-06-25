@@ -13,8 +13,8 @@ const BlogTwoPage = () => {
       <SearchContextProvider>
         <Layout PageTitle="Blog 02 Page">
           <HeaderOne />
-          <PageBanner title="Blog 02" name="Blog" />
-          <BlogTwo />
+          {/* <PageBanner title="Blog 02" name="Blog" /> */}
+          {/* <BlogTwo /> */}
           <Footer />
         </Layout>
       </SearchContextProvider>

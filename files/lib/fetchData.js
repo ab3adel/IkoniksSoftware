@@ -37,3 +37,15 @@ export const fetchSections = async () => {
     let data = res.json()
     return data
 }
+export const fetchPosts = async () => {
+
+    let res = await fetch(`http://backend.test.ikoniks.de/api/website/nodes?section=23`)
+    let data = res.json()
+    return data
+}
+export const fetchPostsCats = async () => {
+
+    let res = await fetch(`http://backend.test.ikoniks.de/api/website/categories?section=23`)
+    let data = res.json()
+    return data
+}

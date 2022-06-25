@@ -4,6 +4,8 @@
     "Home": "Home",
     "Services": "Services",
     "Portfolio": "Portfolio",
+    "IMPRESSUM": "IMPRINT",
+    "Blog": "Blog",
     "welcom to IKONIKS SOFTWARE": "Welcom to IKONIKS SOFTWARE",
     "LEARN MORE": "LEARN MORE",
     "SERVICES WE ARE OFFERING": "SERVICES WE ARE OFFERING",
@@ -18,7 +20,7 @@
     "discover more": "discover more",
     "Service Details": "Service Details",
     "need IKONIKS help?": "need IKONIKS help?",
-    "Prefer speaking with": "Prefer speaking with a human to filling out a form? call corporate office and we will connect you with a team member who can help.",
+    "Prefer speaking with": "Prefer to speak with a human to filling out a form? call corporate office and we will connect you with a team member who can help.",
     "Category": "Category",
     "Contact Us": "Contact Us",
     "your message sent successfully": "your message sent successfully",
@@ -31,5 +33,6 @@
     "Email Address": "Email Address",
     "Phone Number": "Phone Number",
     "Write Message": "Write Message",
-    "Send Message": "Send Message"
+    "Send Message": "Send Message",
+    "Blog Details": "Blog Details"
 }

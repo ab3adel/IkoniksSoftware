@@ -19,13 +19,38 @@ const AboutOne = ({ payload }) => {
     title = payload.title
     body = payload.body
   }
+
+
+
+  var speed = 50;
+  var i = 0;
+  let txt = payload ? body[router.locale] : null
+  function typeWriter() {
+
+    let elm = document.getElementById("demo")
+    if (i == 0) { elm.innerText = '' }
+    // i = 0
+    typeWriter2()
+  }
+  function typeWriter2() {
+
+    let elm = document.getElementById("demo")
+
+    if (i < txt.length) {
+      elm.innerHTML += txt.charAt(i);
+      i++;
+      setTimeout(typeWriter2, speed);
+    }
+  }
   return (
-    <section className="commonSection">
+    <section className="commonSection" onMouseEnter={() => typeWriter()}>
       <div className="container">
         <div className="row">
           <div className="col-lg-6 col-sm-12 col-md-6">
-            <h4 className="sub_title">{payload ? title[router.locale] : null}</h4>
-            <h2 className="sec_title">{payload ? body[router.locale] : null}</h2>
+            <h4 className="sub_title">
+              {payload ? title[router.locale] : null}
+            </h4>
+            <h2 className="sec_title" id='demo'>{payload ? body[router.locale] : null}</h2>
           </div>
           <div className="col-lg-6 col-sm-12 col-md-6">
             <div className="agency_img1">

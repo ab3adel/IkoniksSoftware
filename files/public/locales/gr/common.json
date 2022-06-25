@@ -1,9 +1,11 @@
 {
-    "Contact": "KONTACT",
-    "About": "HOMEÜBER UNS",
+    "Contact": "Kontakt",
+    "About": "ÜBER UNS",
     "Home": "Home",
     "Services": "Services",
     "Portfolio": "Portfolio",
+    "IMPRESSUM": "IMPRESSUM",
+    "Blog": "Bloggen",
     "welcom to IKONIKS SOFTWARE": "Willkommen bei IKONIKS SOFTWARE",
     "LEARN MORE": "LERN MEHR",
     "SERVICES WE ARE OFFERING": "DIENSTLEISTUNGEN, DIE WIR BIETEN",
@@ -31,5 +33,6 @@
     "Email Address": "E-Mail",
     "Phone Number": "Telefonnummer",
     "Write Message": "Nachricht schreiben",
-    "Send Message": "Nachricht senden"
+    "Send Message": "Nachricht senden",
+    "Blog Details": "Blog Details"
 }

@@ -26,7 +26,7 @@ const BlogSinglePage = ({ cats, posts }) => {
           <HeaderOne />
           <PageBanner title={t("Blog Details")} name="Blog" />
           {post && posts && cats && <BlogDetails post={post} posts={posts.payload} cats={cats.payload} />}
-          {related && <RelatedBlog posts={related} />}
+          {related && related.length > 0 && <RelatedBlog posts={related} />}
           <Footer />
         </Layout>
       </SearchContextProvider>

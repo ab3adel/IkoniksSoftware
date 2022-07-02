@@ -131,18 +131,29 @@ const PopupMenu = () => {
               <div className="popUp_social text-center text-md-right">
                 <ul>
                   <li>
-                    <a href="#">
+                    <a target="_blank" href="https://twitter.com/IKONIKS5">
                       <i className="fa fa-twitter"></i>Twitter
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a target="_blank" href="https://www.facebook.com/Ikoniks-101486788394291">
                       <i className="fa fa-facebook-square"></i>Facebook
                     </a>
                   </li>
+
                   <li>
-                    <a href="#">
+                    <a target="_blank" href="https://www.instagram.com/i_koniks/?hl=de">
+                      <i className="fa fa-instagram"></i>Instagram
+                    </a>
+                  </li>
+                  <li>
+                    <a target="_blank" href="https://www.youtube.com/channel/UC-ggTO1LtzSKyUIsHBgr0pQ">
                       <i className="fa fa-youtube-play"></i>Youtube
+                    </a>
+                  </li>
+                  <li>
+                    <a target="_blank" href="https://www.pinterest.de/ikoniks2020/_saved/">
+                      <i className="fa fa-pinterest"></i>Pinterest
                     </a>
                   </li>
                 </ul>

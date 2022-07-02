@@ -20,10 +20,10 @@ const SinglePostCard = ({ post }) => {
             <a href="#">2 Comments</a>
           </p> */}
         </div>
-        <div className="blog_details">
-          <p>
-            {post.body ? post.body[router.locale] : "Blog Item"}
-          </p>
+        <div className="blog_details" dangerouslySetInnerHTML={{ __html: post.body ? post.body[router.locale] : "Blog Item" }}>
+          {/* <p>
+
+          </p> */}
 
         </div>
         {/* <div className="blog_tagitems">

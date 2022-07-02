@@ -16,7 +16,7 @@ const BlogCard = ({ data }) => {
         </Link>
         <h2>
           <Link href={`/blog-single?category=${category_id}&item=${id}`}>
-            <a>{title[router.locale]}</a>
+            <a title={title[router.locale]}>{title[router.locale]}</a>
           </Link>
         </h2>
         <Link href={`/blog-single?category=${category_id}&item=${id}`}>

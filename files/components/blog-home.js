@@ -4,7 +4,9 @@ import SectionTitle from "@/components/section-title";
 import BlogCard from "@/components/blog-card";
 import { BlogHomeSection, BlogData } from "@/data";
 
-const BlogHome = () => {
+
+const BlogHome = ({ posts }) => {
+
   return (
     <section className="commonSection blog">
       <Container>
@@ -14,7 +16,7 @@ const BlogHome = () => {
           </Col>
         </Row>
         <Row>
-          {BlogData.slice(0, 3).map((post, index) => (
+          {posts && posts.map((post, index) => (
             <Col lg={4} sm={12} md={6} key={index}>
               <BlogCard data={post} />
             </Col>

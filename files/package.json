@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start -H 0.0.0.0 -p ${PORT:-8080}",
+    "start": "next start -H 167.172.186.41 -p ${PORT:-8082}",
     "export": "npm run build && next export -o _static"
   },
   "dependencies": {
@@ -14,10 +14,13 @@
     "@mui/material": "^5.6.1",
     "bootstrap": "^4.6.0",
     "custom-cursor-react": "^1.0.5",
+    "fs": "0.0.1-security",
     "gsap": "^3.10.4",
+    "isotope-layout": "^3.0.6",
     "legendary-cursor": "^1.0.2",
     "magicmouse.js": "^1.2.1",
-    "next": "^10.0.0",
+    "next": "^12.1.6",
+    "next-i18next": "^11.0.0",
     "next-images": "^1.7.0",
     "next-transpile-modules": "^9.0.0",
     "parallax-js": "^3.1.0",
@@ -37,5 +40,8 @@
     "swiper": "^6.4.6",
     "three": "^0.140.2",
     "typeface-oswald": "^1.1.13"
+  },
+  "devDependencies": {
+    "serve": "^13.0.2"
   }
 }

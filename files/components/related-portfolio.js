@@ -4,10 +4,16 @@ import PortfolioCard from "@/components/portfolio-card";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.min.css";
 
-const RelatedPortfolio = () => {
+import { useRouter } from 'next/router'
+const RelatedPortfolio = ({ data, cats }) => {
+  const router = useRouter()
   const carouselOptions = {
     spaceBetween: 0,
     slidesPerView: 1,
+    autoplay: {
+      delay: 5000,
+      pauseOnMouseEnter: true
+    },
     breakpoints: {
       0: {
         spaceBetween: 0,
@@ -23,8 +29,17 @@ const RelatedPortfolio = () => {
       }
     }
   };
+  let dataArr = []
+  if (data && data.length > 0) {
+    dataArr = data.map(ele => ({
+      image: `http://backend.test.ikoniks.de/${ele.attachment}`
+      , title: ele.title ? ele.title[router.locale] : '',
+      category_id: ele.category_id,
+      url: "/portfolio-details", id: ele.id
+    }))
+  }
   return (
-    <section className="commonSection relatedPortfolio">
+    <section className="commonSection relatedPortfolio pt-0">
       <div className="container">
         <div className="row">
           <div className="col-lg-12 text-center">
@@ -40,9 +55,9 @@ const RelatedPortfolio = () => {
         <div className="row">
           <div className="col-lg-12">
             <Swiper className="related_slider" {...carouselOptions}>
-              {PortfolioData.map((post, index) => (
+              {dataArr.map((post, index) => (
                 <SwiperSlide key={index}>
-                  <PortfolioCard data={post} />
+                  <PortfolioCard data={post} cats={cats} />
                 </SwiperSlide>
               ))}
             </Swiper>

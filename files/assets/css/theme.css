@@ -54,14 +54,16 @@ License URI:
   top: 0;
   width: 100%;
   z-index: 5;
-  background: transparent;
-  padding: 39px 40px 0 45px;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  padding: 25px 40px 0 45px;
+  background: rgba(0, 0, 0, .35);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 .logo {
   text-align: left;
-  padding: 0 0 39px;
+  padding: 0 0 25px;
+
+  /* padding: 10px 0 17px; */
 
 }
 
@@ -108,7 +110,7 @@ License URI:
   list-style: none;
   display: inline-block;
   line-height: 0.8;
-  padding: 0 20px 53px;
+  padding: 0 20px 25px;
   position: relative;
 }
 
@@ -119,6 +121,17 @@ License URI:
   line-height: 0.8;
   text-transform: uppercase;
   position: relative;
+}
+
+.mainmenu ul li a.langItem {
+  margin-left: -12px;
+  /* padding-left: 12px; */
+  border-left: 1px solid;
+  border: 1px solid;
+  padding: 12px;
+  font-size: 2rem;
+  border-radius: 4px;
+  background: #00000061;
 }
 
 .mainmenu ul li a:after {
@@ -205,7 +218,7 @@ License URI:
 
 .navigator {
   position: relative;
-  padding: 6px 0 37px;
+  padding: 6px 0 20px;
 }
 
 .navigator a {
@@ -259,6 +272,7 @@ License URI:
   width: 100%;
   z-index: 999;
   border: none;
+  border-bottom: 2px solid #03aac1;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
@@ -535,7 +549,7 @@ License URI:
 / 4. About Agency
 ------------------------------------------------------*/
 .ab_agency {
-  padding-bottom: 147px;
+  /* padding-bottom: 147px; */
 }
 
 .PR_79 {
@@ -551,6 +565,7 @@ License URI:
   right: 0;
   top: 0;
   z-index: 1;
+
 }
 
 .ab_img1 img {
@@ -561,29 +576,72 @@ License URI:
   box-shadow: -2px 4px 30px 0px rgba(0, 0, 0, 0.3);
 }
 
+.aboutDet .blog_headings h2 {
+  color: #03aac1;
+}
+
+.aboutDet .blog_headings {
+  background: #00000000;
+  background-color: #00000000;
+}
+
+.aboutDet .singleAbout {
+  position: relative;
+  border-left: 0rem solid #03aac1;
+  border-right: 0rem solid #03aac1;
+  transition: all 0.5s ease-in-out;
+}
+
+.aboutDet .singleAbout:hover {
+  position: relative;
+  border-left: 2rem solid #03aac1;
+  border-right: 2rem solid #03aac1;
+  /* transition: all 0.5s ease-in-out; */
+}
+
 .ab_img2 {
-  position: absolute;
+  /* position: absolute;
   left: 0;
   top: 100px;
-  z-index: 2;
+  z-index: 2; */
+  position: relative;
+  left: 0;
+  /* top: 100px; */
+  /* z-index: 2; */
+  z-index: -1;
+  padding: 0px;
 }
 
 .ab_img2:after {
   position: absolute;
-  top: -40px;
-  left: 40px;
+  top: 0;
+  left: 0;
   content: "";
-  border: 10px solid #e62b4a;
-  width: 470px;
-  height: 458px;
+  border: 10px solid #03aac1;
+  width: 100%;
+  height: 100%;
 }
 
 .ab_img2 img {
+  /* max-width: 100%;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  display: block;
+  margin: 0px !important;
+  box-shadow: -2px 4px 35px 0px rgb(0 0 0 / 30%);
+  padding: 0px; */
   max-width: 100%;
-  height: auto;
-  -webkit-box-shadow: -2px 4px 35px 0px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: -2px 4px 35px 0px rgba(0, 0, 0, 0.3);
-  box-shadow: -2px 4px 35px 0px rgba(0, 0, 0, 0.3);
+  height: 100%;
+
+  max-height: 50rem;
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  display: block;
+  margin: 0px !important;
+  box-shadow: -2px 0px 35px 0px rgb(23 99 116);
+  padding: 0px;
 }
 
 /*----------------------------------------------------
@@ -708,9 +766,16 @@ License URI:
 .singlefolio img {
   display: block;
   width: 100%;
-  height: auto;
+  /* height: 350px; */
+  object-fit: fill;
   -webkit-transition: all 0.4s ease-out;
   transition: all 0.4s ease-out;
+}
+
+.related_slider .singlefolio img {
+
+  height: 350px;
+
 }
 
 .folioHover {
@@ -731,7 +796,7 @@ License URI:
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(230, 43, 74, 0.8);
+  background: #00b2ca6e;
   overflow: hidden;
   width: 0;
   height: 100%;
@@ -1145,7 +1210,7 @@ License URI:
 / 10. Our Clients Section
 ------------------------------------------------------*/
 .client {
-  background: #f4f4f4;
+  background: #303030;
 }
 
 .singleClient {
@@ -1168,15 +1233,19 @@ License URI:
 }
 
 .singleClient a img {
-  max-width: 119px;
-  height: auto;
+  max-width: 90%;
+  width: 55%;
+  height: 100%;
+  position: absolute;
+  object-fit: contain;
+  padding: 7px;
   position: absolute;
   left: 0;
   top: 0;
   right: 0;
   bottom: 0;
   margin: auto;
-  opacity: 0.4;
+  opacity: 1;
   display: inline-block !important;
   transition: all ease 500ms;
   -moz-transition: all ease 500ms;
@@ -1192,7 +1261,7 @@ License URI:
   bottom: 0;
   margin: auto 0;
   content: "";
-  background: #e62b4a;
+  background: #03aac1;
   visibility: hidden;
   opacity: 0;
   transition: all ease 500ms;
@@ -1244,7 +1313,7 @@ License URI:
 .client_slider .swiper-pagination-bullet:hover,
 .client_slider .owl-controls .owl-dots .owl-dot.active span,
 .client_slider .owl-controls .owl-dots .owl-dot:hover span {
-  background: #000000;
+  background: #03aac1;
 }
 
 .client_slider .swiper-pagination {
@@ -1369,6 +1438,23 @@ License URI:
   position: relative;
   background: #fff;
   margin: 0 0 51px;
+  border: 2px solid #03aac1;
+  transform: scaleY(1);
+  box-shadow: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.latestBlogItem:hover {
+  transform: scaleY(1.01);
+  border: 4px solid #03aac1;
+  box-shadow: 0px 3px 54px -5px white;
+}
+
+.latestBlogItem:hover .lbi_details {
+
+  top: -12px;
+  background: #d9d9d9;
+
 }
 
 .lbi_thumb {
@@ -1379,16 +1465,34 @@ License URI:
 .lbi_thumb img {
   width: 100%;
   height: auto;
+  transition: all 3s ease;
+  height: 300px;
+  object-fit: none;
+  ;
+
+  transition: all 3s ease;
+}
+
+.latestBlogItem:hover .lbi_thumb img {
+
+  transform: scale(1.2);
+
 }
 
 .lbi_details {
   text-align: left;
   margin: 0 10px;
   position: relative;
+  top: 0px;
   margin-top: -20px;
   padding: 30px 30px 0;
   background: #fff;
   z-index: 3;
+  transition: all 0.3s ease-in-out;
+}
+
+.latestBlogItem:hover .lbi_details:hover {
+  background: #303030;
 }
 
 .lbi_details .lbid_date {
@@ -1408,8 +1512,8 @@ License URI:
 }
 
 .lbi_details .lbid_date:hover {
-  color: #fff;
-  background: #e62b4a;
+  color: #03aac1;
+  background: #fff;
 }
 
 .lbi_details h2 {
@@ -1422,11 +1526,16 @@ License URI:
 }
 
 .lbi_details h2 a {
-  color: #000;
+  color: #03aac1;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .lbi_details h2 a:hover {
-  color: #e62b4a;
+  color: #fff;
 }
 
 .lbi_details .learnM {
@@ -1443,7 +1552,7 @@ License URI:
   width: 0;
   height: 1px;
   content: "";
-  background: #e62b4a;
+  background: #fff;
   position: absolute;
   left: 0;
   right: 0;
@@ -1458,14 +1567,14 @@ License URI:
 }
 
 .lbi_details .learnM:hover {
-  color: #e62b4a;
+  color: #fff;
 }
 
 /*----------------------------------------------------
 / 13. Ready Section
 ------------------------------------------------------*/
 .ready {
-  background: url(../images/bg/4.jpg) no-repeat center center / cover;
+  background: url(../images/bg/6.jpg) no-repeat center center / cover;
 }
 
 .ready .sec_title {
@@ -1607,23 +1716,23 @@ License URI:
   width: 100%;
   background: #fff;
   border: 2px solid #f4f4f4;
-  padding: 50px 65px 50px;
+  padding: 24px 49px 25px;
   transition: all ease 500ms;
   -moz-transition: all ease 500ms;
   -webkit-transition: all ease 500ms;
 }
 
 .icon_box_2:after {
-  width: 4px;
+  width: 6px;
   height: 0;
   position: absolute;
   content: "";
-  right: -1px;
+  right: -2px;
   top: 0;
   bottom: 0;
   margin: auto 0;
   content: "";
-  background: #e62b4a;
+  background: #00abc2;
   visibility: hidden;
   opacity: 0;
   z-index: 3;
@@ -1643,11 +1752,26 @@ License URI:
 
 .icon_box_2 p {
   margin: 0 0 31px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  color: #03aac1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .icon_box_2 .iconWrap {
   position: relative;
   margin: 0 0 44px;
+}
+
+.icon_box_2 .iconWrap .serviceIMG {
+  position: relative;
+  max-width: 100%;
+  width: 100%;
+  height: 100px;
+  object-fit: contain;
+
 }
 
 .icon_box_2 .iconWrap:after {
@@ -2148,7 +2272,7 @@ License URI:
 .pageBanner {
   position: relative;
   min-height: 465px;
-  background: url(../images/bg/8.jpg) no-repeat center center / cover;
+  background: url('../images/bg/8.jpeg') no-repeat center center / cover;
   padding-top: 224px;
 }
 
@@ -2240,6 +2364,18 @@ License URI:
   margin: 0;
 }
 
+.col-lg-12:hover .compay_date h5 {
+  color: #fff;
+
+
+}
+
+.col-lg-12:hover .compay_date h2 {
+  color: #fff;
+
+  text-shadow: 2px 0px 10px #03aac1;
+}
+
 .subscribe {
   padding: 100px 0 72px;
   border-bottom: 1px solid #e7e7e7;
@@ -2298,19 +2434,35 @@ License URI:
   width: 100%;
   height: auto;
   margin-bottom: 57px;
+  max-height: 381px;
+  object-fit: cover;
+  object-position: center;
 }
 
 .serviceArea h2 {
   text-transform: uppercase;
-  color: #222232;
+
   line-height: 0.8;
   font-size: 50px;
+  color: #01b1c8;
   letter-spacing: 2px;
   margin-bottom: 34px;
 }
 
 .serviceArea p {
-  margin: 0 0 31px;
+  margin: 0 0 0px;
+}
+
+.serviceArea p strong {
+
+  margin: 20px 0px 7px;
+  display: flex;
+  color: #03aac1;
+  font-family: 'Oswald';
+  font-weight: 400;
+  font-size: 2rem;
+  border-bottom: 2px solid #03aac1;
+  width: fit-content;
 }
 
 .serviceArea h3 {
@@ -2336,10 +2488,11 @@ License URI:
 }
 
 .serviceArea ul li {
-  list-style: none;
-  display: inline-block;
+  list-style: disc;
+  /* display: inline-block; */
   line-height: 32px;
   font-size: 16px;
+  padding-left: 15px;
 }
 
 .serviceArea ul li i {
@@ -2505,7 +2658,7 @@ License URI:
 .singlePortfoio_content h3 {
   font-size: 30px;
   line-height: 0.8;
-  color: #000;
+  color: #03aac1;
   text-transform: uppercase;
   letter-spacing: 1.04px;
   margin: 0 0 39px;
@@ -2514,7 +2667,7 @@ License URI:
 .singlePortfoio_content h4 {
   font-size: 18px;
   line-height: 0.8;
-  color: #000;
+  color: #03aac1;
   text-transform: uppercase;
   letter-spacing: 0.72px;
   margin: 0 0 9px;
@@ -2657,6 +2810,9 @@ License URI:
 .blog_thumb img {
   width: 100%;
   height: auto;
+  max-height: 420px;
+  object-fit: cover;
+  object-position: center;
 }
 
 .blog_headings {
@@ -2690,6 +2846,7 @@ License URI:
   line-height: 40px;
   letter-spacing: 1.6px;
   margin: 0 0 7px;
+  padding-bottom: 14px;
 }
 
 .blog_headings .blog_metas {
@@ -2716,12 +2873,25 @@ License URI:
 }
 
 .blog_details {
-  padding: 0px 40px 22px;
+  padding: 0px 15px 22px;
 }
 
 .blog_details p {
-  line-height: 30px;
-  margin: 0 0 30px;
+  /* line-height: 23px;
+  margin: 0 0 19px; */
+}
+
+.blog_details strong {
+  color: #03aac1
+}
+
+.blog_details li {
+  list-style: disc;
+
+}
+
+.blog_details li li {
+  list-style-type: disclosure-closed;
 }
 
 .blog_tagitems {
@@ -3038,15 +3208,21 @@ textarea.input-form:focus {
   text-transform: uppercase;
   line-height: 0.8;
   letter-spacing: 0.72px;
-  margin: 0 0 -2px;
+
+  margin: 0 0 0px;
+  color: white;
   padding: 23px 48px 24px;
-  border: 2px solid #f4f4f4;
+  background: #000000;
+  border-bottom: 4px solid #03aac1;
+  border-top: 1px solid #03aac1;
 }
 
 .meipaly_post_widget {
   position: relative;
   background: #f4f4f4;
-  padding: 50px;
+  padding: 50px 25px;
+  max-height: 323px;
+  overflow-y: scroll;
 }
 
 .mpw_item {
@@ -3088,6 +3264,7 @@ textarea.input-form:focus {
   position: relative;
   background: #f4f4f4;
   padding: 43px 50px 44px;
+  background: url(../images/s3.jpg) no-repeat center center / cover;
 }
 
 .meipaly_categorie_widget ul {
@@ -3113,7 +3290,7 @@ textarea.input-form:focus {
 }
 
 .meipaly_categorie_widget ul li a:hover {
-  color: #000;
+  color: #03aac1;
 }
 
 .meipaly_tagcloude_widget {
@@ -4222,6 +4399,20 @@ textarea.input-form:focus {
   background-color: #fff;
 }
 
+.impress-Section {
+  padding-top: 130px;
+  padding-bottom: 75px;
+}
+
+.impress-Section h2,
+.impress-Section a {
+  color: #01b1c8;
+}
+
+.impress-Section p {
+  font-weight: 300;
+}
+
 @media (min-width: 768px) {
   .main-slider [class*="swiper-button-"] {
     width: 70px;
@@ -4253,4 +4444,77 @@ textarea.input-form:focus {
 .main-slider__two .main-slider__subtext,
 .main-slider__two .main-slider__title {
   color: #000000;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #03aac1;
+  border-radius: 0px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.ulCats {
+  display: flex;
+  row-gap: 15px;
+  column-gap: 15px;
+  padding: 0px;
+  justify-content: center;
+  margin-bottom: 41px;
+  background: black;
+  border: 2px solid #03aac1;
+  border-radius: 13px;
+  padding: 15px;
+  width: fit-content;
+  margin: 0 auto 20px;
+  flex-flow: wrap;
+  flex-flow: wrap;
+}
+
+.ulCats li {
+
+
+  padding: 3px 40px;
+  border: 3px solid #03aac100;
+  min-width: fit-content;
+}
+
+.ulCats li.active {
+
+
+  border: 3px solid #03aac1;
+  padding: 3px 40px;
+  background: white;
+
+}
+
+.ulCats li.active a {
+
+  color: #03aac1;
+
+
+}
+
+.ulCats li a {
+
+  color: #fff;
+
+
+}
+
+.blogSection {
+  background-color: #000000b3;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='487' height='243.5' viewBox='0 0 1600 800'%3E%3Cpath fill='%23fdb9a0' d='M1102.5 734.8c2.5-1.2 24.8-8.6 25.6-7.5.5.7-3.9 23.8-4.6 24.5-.2.3-16-12.3-21-17zm123.8-505.7c0-.1-4.9-9.4-7-14.2-.1-.3-.3-1.1-.4-1.6-.1-.4-.3-.7-.6-.9-.3-.2-.6-.1-.8.1l-13.1 12.3c-.2.2-.3.5-.4.8 0 .3 0 .7.2 1 .1.1 1.4 2.5 2.1 3.6 2.4 3.7 6.5 12.1 6.5 12.2.2.3.4.5.7.6.3 0 .5-.1.7-.3 0 0 1.8-2.5 2.7-3.6 1.5-1.6 3-3.2 4.6-4.7 1.2-1.2 1.6-1.4 2.1-1.6.5-.3 1.1-.5 2.5-1.9.4-.5.5-1.3.2-1.8zM33 770.3c0-.7-.5-1.2-1.2-1.2-.1 0-.3 0-.4.1-1.6.2-14.3.1-22.2 0-.3 0-.6.1-.9.4-.2.2-.4.5-.4.9 0 .2 0 4.9.1 5.9l.4 13.6c0 .3.2.6.4.9.2.2.5.3.8.3h.1c7.3-.7 14.7-.9 22-.6.3 0 .7-.1.9-.3.2-.2.4-.6.4-.9-.1-6.1-.1-13.2 0-19.1z' style='&%2310;'/%3E%3Cpath fill='%23fee272' d='M171.1 383.4c1.3-2.5 14.3-22 15.6-21.6.8.3 11.5 21.2 11.5 22.1-.1.3-20.3.1-27.1-.5zm425.3 328.4c-.1-.1-6.7-8.2-9.7-12.5-.2-.3-.5-1-.7-1.5-.2-.4-.4-.7-.7-.8-.3-.1-.6 0-.8.3L574 712c-.2.2-.2.5-.2.9 0 .3.2.7.4.9.1.1 1.8 2.2 2.8 3.1 3.1 3.1 8.8 10.5 8.9 10.6.2.3.5.4.8.4.3 0 .5-.2.6-.5 0 0 1.2-2.8 2-4.1 1.1-1.9 2.3-3.7 3.5-5.5.9-1.4 1.3-1.7 1.7-2 .5-.4 1-.7 2.1-2.4.3-.3.2-1.1-.2-1.6zm131.1-531.9c.6.2 1.3-.2 1.4-.8v-.4c.2-1.4 2.8-12.6 4.5-19.5.1-.3 0-.6-.2-.8-.2-.3-.5-.4-.8-.5-.2 0-4.7-1.1-5.7-1.3l-13.4-2.7c-.3-.1-.7 0-.9.2-.2.2-.4.4-.5.6v.1c-.8 6.5-2.2 13.1-3.9 19.4-.1.3 0 .6.2.9.2.3.5.4.8.5 5.8 1.3 12.7 2.9 18.5 4.3zm1-1.8c-.1-.1-.2-.2-.4-.2.2 0 .3.1.4.2z'/%3E%3Cg fill='%23eac5e7'%3E%3Cpath d='M699.6 472.7c-1.5 0-2.8-.8-3.5-2.3-.8-1.9 0-4.2 1.9-5 3.7-1.6 6.8-4.7 8.4-8.5 1.6-3.8 1.7-8.1.2-11.9-.3-.9-.8-1.8-1.2-2.8-.8-1.7-1.8-3.7-2.3-5.9-.9-4.1-.2-8.6 2-12.8 1.7-3.1 4.1-6.1 7.6-9.1 1.6-1.4 4-1.2 5.3.4 1.4 1.6 1.2 4-.4 5.3-2.8 2.5-4.7 4.7-5.9 7-1.4 2.6-1.9 5.3-1.3 7.6.3 1.4 1 2.8 1.7 4.3l1.5 3.3c2.1 5.6 2 12-.3 17.6-2.3 5.5-6.8 10.1-12.3 12.5-.4.2-.9.3-1.4.3zm40.8-51.3c1.5-.2 3 .5 3.8 1.9 1.1 1.8.4 4.2-1.4 5.3-3.7 2.1-6.4 5.6-7.6 9.5-1.2 4-.8 8.4 1.1 12.1.4.9 1 1.7 1.6 2.7 1 1.7 2.2 3.5 3 5.7 1.4 4 1.2 8.7-.6 13.2-1.4 3.4-3.5 6.6-6.8 10.1-1.5 1.6-3.9 1.7-5.5.2-1.6-1.4-1.7-3.9-.2-5.4 2.6-2.8 4.3-5.3 5.3-7.7 1.1-2.8 1.3-5.6.5-7.9-.5-1.3-1.3-2.7-2.2-4.1-.6-1-1.3-2.1-1.9-3.2-2.8-5.4-3.4-11.9-1.7-17.8 1.8-5.9 5.8-11 11.2-14 .4-.4.9-.6 1.4-.6zM261.3 590.9c5.7 6.8 9 15.7 9.4 22.4.5 7.3-2.4 16.4-10.2 20.4-3 1.5-6.7 2.2-11.2 2.2-7.9-.1-12.9-2.9-15.4-8.4-2.1-4.7-2.3-11.4 1.8-15.9 3.2-3.5 7.8-4.1 11.2-1.6 1.2.9 1.5 2.7.6 3.9-.9 1.2-2.7 1.5-3.9.6-1.8-1.3-3.6.6-3.8.8-2.4 2.6-2.1 7-.8 9.9 1.5 3.4 4.7 5 10.4 5.1 3.6 0 6.4-.5 8.6-1.6 4.7-2.4 7.7-8.6 7.2-15-.5-7.3-5.3-18.2-13-23.9-4.2-3.1-8.5-4.1-12.9-3.1-3.1.7-6.2 2.4-9.7 5-6.6 5.1-11.7 11.8-14.2 19-2.7 7.7-2.1 15.8 1.9 23.9.7 1.4.1 3.1-1.3 3.7-1.4.7-3.1.1-3.7-1.3-4.6-9.4-5.4-19.2-2.2-28.2 2.9-8.2 8.6-15.9 16.1-21.6 4.1-3.1 8-5.1 11.8-6 6-1.4 12 0 17.5 4 2.1 1.7 4.1 3.6 5.8 5.7z'/%3E%3Ccircle cx='1013.7' cy='153.9' r='7.1'/%3E%3Ccircle cx='1024.3' cy='132.1' r='7.1'/%3E%3Ccircle cx='1037.3' cy='148.9' r='7.1'/%3E%3Cpath d='M1508.7 297.2c-4.8-5.4-9.7-10.8-14.8-16.2 5.6-5.6 11.1-11.5 15.6-18.2 1.2-1.7.7-4.1-1-5.2-1.7-1.2-4.1-.7-5.2 1-4.2 6.2-9.1 11.6-14.5 16.9-4.8-5-9.7-10-14.7-14.9-1.5-1.5-3.9-1.5-5.3 0-1.5 1.5-1.5 3.9 0 5.3 4.9 4.8 9.7 9.8 14.5 14.8-1.1 1.1-2.3 2.2-3.5 3.2-4.1 3.8-8.4 7.8-12.4 12-1.4 1.5-1.4 3.8 0 5.3 1.5 1.4 3.9 1.4 5.3-.1 3.9-4 8.1-7.9 12.1-11.7 1.2-1.1 2.3-2.2 3.5-3.3 4.9 5.3 9.8 10.6 14.6 15.9l.2.2c1.4 1.4 3.7 1.5 5.2.2 1.7-1.2 1.8-3.6.4-5.2zM327.6 248.6l-.4-2.6c-1.5-11.1-2.2-23.2-2.3-37 0-5.5 0-11.5.2-18.5v-2.3c0-5 0-11.2 3.9-13.5 2.2-1.3 5.1-1 8.5.9 5.7 3.1 13.2 8.7 17.5 14.9 5.5 7.8 7.3 16.9 5 25.7-3.2 12.3-15 31-30 32.1l-2.4.3zm4.5-69.4c-.2 0-.3 0-.4.1-.1.1-.7.5-1.1 2.7-.3 1.9-.3 4.2-.3 6.3v2.4c-.2 6.9-.2 12.8-.2 18.3.1 12.5.7 23.5 2 33.7 11-2.7 20.4-18.1 23-27.8 1.9-7.2.4-14.8-4.2-21.3-3.9-5.5-10.9-10.6-15.9-13.3-1.4-.8-2.4-1.1-2.9-1.1zM516.3 60.8c-.1 0-.2 0-.4-.1-2.4-.7-4-.9-6.7-.7-.7 0-1.3-.5-1.4-1.2 0-.7.5-1.3 1.2-1.4 3.1-.2 4.9 0 7.6.8.7.2 1.1.9.9 1.6-.2.6-.7 1-1.2 1zm-10.2 9.7c-.5 0-1-.3-1.2-.8-.8-2.1-1.2-4.3-1.3-6.6 0-.7.5-1.3 1.2-1.3s1.3.5 1.3 1.2c.1 2 .5 3.9 1.1 5.8.2.7-.1 1.4-.8 1.6 0 .1-.2.1-.3.1zm-12-6.1c-.4 0-.8-.2-1-.5-.4-.6-.3-1.4.2-1.8 1.8-1.4 3.7-2.6 5.8-3.6.6-.3 1.4 0 1.7.6.3.6 0 1.4-.6 1.7-1.9.9-3.7 2-5.3 3.3-.2.2-.5.3-.8.3zm6.4-9.1c-.5 0-.9-.3-1.2-.7-.5-1-1.2-1.9-2.4-3.4-.3-.4-.7-.9-1.1-1.4-.4-.6-.3-1.4.2-1.8.6-.4 1.4-.3 1.8.2.4.5.8 1 1.1 1.4 1.3 1.6 2.1 2.6 2.7 3.9.3.6 0 1.4-.6 1.7-.1.1-.3.1-.5.1zm6.2-.3c-.3 0-.5-.1-.8-.2-.6-.4-.7-1.2-.3-1.8 1.2-1.7 2.3-3.4 3.3-5.2.3-.6 1.1-.9 1.7-.5.6.3.9 1.1.5 1.7-1 1.9-2.2 3.8-3.5 5.6-.2.2-.5.4-.9.4zm522.6 327.8c-.1 0-.2 0-.4-.1-2.4-.7-4-.9-6.7-.7-.7 0-1.3-.5-1.4-1.2 0-.7.5-1.3 1.2-1.4 3.1-.2 4.9 0 7.6.8.7.2 1.1.9.9 1.6-.2.6-.7 1-1.2 1zm-10.2 9.7c-.5 0-1-.3-1.2-.8-.8-2.1-1.2-4.3-1.3-6.6 0-.7.5-1.3 1.2-1.3s1.3.5 1.3 1.2c.1 2 .5 3.9 1.1 5.8.2.7-.1 1.4-.8 1.6 0 .1-.2.1-.3.1zm-12-6.1c-.4 0-.8-.2-1-.5-.4-.6-.3-1.4.2-1.8 1.8-1.4 3.7-2.6 5.8-3.6.6-.3 1.4 0 1.7.6.3.6 0 1.4-.6 1.7-1.9.9-3.7 2-5.3 3.3-.2.2-.5.3-.8.3zm6.4-9.1c-.5 0-.9-.3-1.2-.7-.5-1-1.2-1.9-2.4-3.4-.3-.4-.7-.9-1.1-1.4-.4-.6-.3-1.4.2-1.8.6-.4 1.4-.3 1.8.2.4.5.8 1 1.1 1.4 1.3 1.6 2.1 2.6 2.7 3.9.3.6 0 1.4-.6 1.7-.1.1-.3.1-.5.1zm6.2-.3c-.3 0-.5-.1-.8-.2-.6-.4-.7-1.2-.3-1.8 1.2-1.7 2.3-3.4 3.3-5.2.3-.6 1.1-.9 1.7-.5.6.3.9 1.1.5 1.7-1 1.9-2.2 3.8-3.5 5.6-.2.2-.5.4-.9.4zm310 196.4c-1.4 0-2.9-.2-4.5-.7-8.4-2.7-16.6-12.7-18.7-20-.4-1.4-.7-2.9-.9-4.4-8.1 3.3-15.5 10.6-15.4 21 0 1.5-1.2 2.7-2.7 2.8-1.5 0-2.7-1.2-2.7-2.7-.1-6.7 2.4-12.9 7-18 3.6-4 8.4-7.1 13.7-8.8.5-6.5 3.1-12.9 7.4-17.4 7-7.4 18.2-8.9 27.3-10.1l.7-.1c1.5-.2 2.9.9 3.1 2.3.2 1.5-.9 2.9-2.3 3.1l-.7.1c-8.6 1.2-18.4 2.5-24 8.4-3 3.2-5 7.7-5.7 12.4 7.9-1 17.7 1.3 24.3 5.7 4.3 2.9 7.1 7.8 7.2 12.7.2 4.3-1.7 8.3-5.2 11.1-2.4 1.6-5 2.6-7.9 2.6zm-18.7-26.7c.1 1.5.4 3 .8 4.4 1.7 5.8 8.7 14.2 15.1 16.3 2.8.9 5.1.5 7.2-1.1 2.7-2.1 3.2-4.8 3.1-6.6-.1-3.2-2-6.4-4.8-8.3-5.7-3.9-14.7-5.8-21.4-4.7z'/%3E%3C/g%3E%3C/svg%3E");
 }

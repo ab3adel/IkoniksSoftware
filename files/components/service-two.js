@@ -3,11 +3,16 @@ import { Container, Row, Col } from "react-bootstrap";
 import { ServicePostTwoData } from "@/data";
 import ServiceCardTwo from "@/components/service-card-two";
 import { fetchServices } from '../lib/fetchData'
+// import { useRouter } from 'next/router'
+
+import { useTranslation } from 'next-i18next'
 
 
 const ServiceTwo = ({ data }) => {
-  const { sectionContent, posts } = ServicePostTwoData;
-  const { title, subTitle, text } = sectionContent;
+  // const router = useRouter()
+  const { t } = useTranslation('common')
+  // const { sectionContent, posts } = ServicePostTwoData;
+  // const { title, subTitle, text } = sectionContent;
   // let { payload } = dataa
   // const fetched = useMemo(async () => {
   //   let res = await fetchServices().then(data => { return data.payload })
@@ -19,9 +24,9 @@ const ServiceTwo = ({ data }) => {
       <Container>
         <Row>
           <Col lg={12} className="text-center">
-            <h4 className="sub_title red_color">{subTitle}</h4>
-            <h2 className="sec_title white">{title}</h2>
-            <p className="sec_desc color_aaa">{text}</p>
+            <h4 className="sub_title red_color">{t("SERVICES WE ARE OFFERING")}</h4>
+            <h2 className="sec_title white">{t("WE DESIGN DIGITAL")}</h2>
+            <p className="sec_desc color_aaa">{t("We are committed to")}</p>
           </Col>
         </Row>
         <Row className="custom_column">

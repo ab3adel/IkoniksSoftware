@@ -25,13 +25,16 @@ License URI:
 ------------------------------------------------------------------------------*/
 @import url('https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700');
 
-body, html{
+body,
+html {
     margin: 0;
     padding: 0;
 }
-body{
+
+body {
     line-height: 32px;
-    color: #818181;
+    color: #fff;
+    background-color: #303030;
     letter-spacing: 0.64px;
     font-size: 16px;
     font-family: 'Oswald', sans-serif;
@@ -44,26 +47,35 @@ body{
 /*------------------------------------------------------------------------------
 / 2. Typography Settings
 ------------------------------------------------------------------------------*/
-h1, h2, h3, h4, h5 h6{
-    color: #000000;
+h1,
+h2,
+h3,
+h4,
+h5 h6 {
+    color: #03aac1;
     font-weight: 400;
     margin: 0 0 15px;
 }
-a{
+
+a {
     color: #000;
     text-decoration: none;
     transition: all ease 400ms;
     -webkit-transition: all ease 400ms;
     -moz-transition: all ease 400ms;
 }
-a:hover, a:focus{
+
+a:hover,
+a:focus {
     text-decoration: none;
     outline: 0;
 }
-a:focus{
+
+a:focus {
     color: #fff;
 }
-ul li{
+
+ul li {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -72,25 +84,27 @@ ul li{
 /*------------------------------------------------------------------------------
 / 3. Section Title Settings
 ------------------------------------------------------------------------------*/
-.noPadding{
+.noPadding {
     padding: 0;
 }
-.noPaddingRight{
+
+.noPaddingRight {
     padding-right: 0;
 }
-.noPaddingLeft{
+
+.noPaddingLeft {
     padding-right: 0;
 }
 
 /*------------------------------------------------------------------------------
 / 4. Button Settings
 ------------------------------------------------------------------------------*/
-.common_btn{
+.common_btn {
     border: none;
     font-size: 16px;
     font-weight: 400;
-    background: #000000;
-    color: #fff;
+    background: #141414;
+    color: #00b2ca;
     height: 70px;
     text-transform: uppercase;
     text-align: center;
@@ -106,10 +120,12 @@ ul li{
     -ms-transition: all 0.4s ease-out;
     -o-transition: all 0.4s ease-out;
 }
+
 .common_btn span {
     position: relative;
     z-index: 2;
 }
+
 .common_btn:after {
     content: "";
     width: 4px;
@@ -124,70 +140,83 @@ ul li{
     -ms-transition: all 0.4s ease-out;
     -o-transition: all 0.4s ease-out;
 }
-.common_btn:hover:after{
+
+.common_btn:hover:after {
     width: 100%;
 }
-.common_btn:hover{
+
+.common_btn:hover {
     color: #000;
 }
-.common_btn.red_bg{
+
+.common_btn.red_bg {
     padding: 28px 40.5px;
 }
-.common_btn.red_bg:after{
-    background: #e62b4a;
+
+.common_btn.red_bg:after {
+    background: #03aac1;
 }
-.common_btn.red_bg:hover:after{
+
+.common_btn.red_bg:hover:after {
     width: 100%;
 }
-.common_btn.red_bg:hover{
+
+.common_btn.red_bg:hover {
     color: #fff;
 }
 
 /*------------------------------------------------------------------------------
 / 5. Section Settings
 ------------------------------------------------------------------------------*/
-.commonSection{
+.commonSection {
     padding: 120px 0;
     position: relative;
 }
-.commonSection .container{
+
+.commonSection .container {
     position: relative;
     z-index: 2;
 }
-.grays{
+
+.grays {
     background: #f5f6fa;
 }
-.sub_title{
+
+.sub_title {
     font-size: 12px;
     line-height: .8;
     font-weight: 400;
-    color: #818181;
+    color: #777;
     letter-spacing: 1.2px;
     text-transform: uppercase;
     margin: 0 0 5px;
 }
-.sec_title{
+
+.sec_title {
     font-size: 50px;
     line-height: 60px;
     font-weight: 400;
-    color: #000;
+    color: #03aac1;
     letter-spacing: 2px;
     text-transform: uppercase;
     margin: 0 0 25px;
     white-space: pre-line;
 }
-.red_color{
+
+.red_color {
     color: #e62b4a;
 }
-.white{
+
+.white {
     color: #ffffff;
 }
-.sec_desc{
+
+.sec_desc {
     margin: 0 0 54px;
     white-space: pre-line;
 }
 
-.color_aaa{
+.color_aaa {
     color: #aaaaaa;
 }
 
@@ -196,11 +225,209 @@ ul li{
     width: 100%;
     height: 609px;
 }
+
 .google-map__contact-page iframe {
     width: 100%;
     height: 100%;
     border: none;
     display: block;
+}
+
+:root {
+    --clr-neon: #03aac1;
+
+}
+
+
+
+
+.neon-button {
+
+
+    display: inline-block;
+    /* overflow: hidden; */
+    text-decoration: none;
+    border: var(--clr-neon) 0.025em solid;
+    /* box-shadow: none; */
+
+    border-radius: 0.25em;
+    background: var(--clr-neon);
+    width: 100%;
+    height: 0px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0px);
+
+}
+
+.neon-button::before {
+    pointer-events: none;
+    content: '';
+    position: absolute;
+    background: var(--clr-neon);
+    top: 120%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    transform: perspective(1em) rotateX(40deg) scale(1, 0.35);
+    filter: blur(1em);
+    opacity: 0.7;
+    transition: filter 100ms linear;
+}
+
+.neon-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    box-shadow: 0 0 2em 0.5em var(--clr-neon);
+    opacity: 0;
+    background-color: var(--clr-neon);
+    z-index: -1;
+    transition: opacity 100ms linear;
+}
+
+.neon-button:hover,
+.neon-button:focus {
+    color: var(--clr-bg);
+    text-shadow: none;
+}
+
+.neon-button:hover::before,
+.neon-button:focus::before {
+    opacity: 1;
+    filter: blur(2em);
+}
+
+.neon-button:hover::after,
+.neon-button:focus::after {
+    opacity: 1;
+}
+
+.neon-light {
+    width: 90%;
+    height: 14px;
+    background: transparent;
+    border-radius: 15px;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, 0%);
+    box-shadow: 0 0 40px 5px #fff, inset 0 0 20px #fff, 0 0 160px 20px #fff,
+        inset 0 0 20px #08f, 0 0 320px 30px #08f, inset 0 0 20px #08f;
+    animation: run 5s linear infinite;
+}
+
+.ab_agency {
+    overflow: hidden;
+}
+
+.ab_agency:hover .neon-button {
+    font-size: 4em;
+
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--clr-neon);
+    border: var(--clr-neon) 0.07em solid;
+
+    border-radius: 0.25em;
+    background: var(--clr-neon);
+
+    box-shadow: inset 0 0 0.5em 0 var(--clr-neon), 0 0 0.5em 0 var(--clr-neon);
+    position: absolute;
+    top: 1px;
+    left: 50%;
+    transform: translate(-50%, 0px);
+    width: 80%;
+    padding: 0px;
+    /* animation: runn 5s linear; */
+
+
+}
+
+.ab_agency:hover .neon-button::after {
+    opacity: 1;
+    filter: blur(2em);
+    /* animation: run 5s linear infinite; */
+}
+
+@keyframes runn {
+    0% {
+
+        opacity: 0;
+    }
+
+    2% {
+
+        opacity: 1;
+    }
+
+    4% {
+
+        opacity: 0;
+    }
+
+    6% {
+
+        opacity: 1;
+    }
+
+    8% {
+
+        opacity: 0;
+    }
+
+    10% {
+
+        opacity: 1;
+    }
+
+    100% {
+
+        opacity: 1;
+    }
+}
+
+@keyframes run {
+    0% {
+        top: 10%;
+        opacity: 0;
+    }
+
+    2% {
+        top: 10%;
+        opacity: 1;
+    }
+
+    4% {
+        top: 10%;
+        opacity: 0;
+    }
+
+    6% {
+        top: 10%;
+        opacity: 1;
+    }
+
+    8% {
+        top: 10%;
+        opacity: 0;
+    }
+
+    10% {
+        top: 10%;
+        opacity: 1;
+    }
+
+    100% {
+        top: 90%;
+        opacity: 1;
+    }
 }
 
 @media(min-width: 1200px) {

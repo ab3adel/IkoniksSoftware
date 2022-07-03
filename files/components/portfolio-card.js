@@ -1,16 +1,22 @@
 import React from "react";
-const PortfolioCard = ({ data }) => {
-  const { image, title, categories, url } = data;
+import Link from "next/link";
+import { useRouter } from 'next/router'
+const PortfolioCard = ({ data, cats }) => {
+  const router = useRouter()
+  const { image, title, url, id } = data;
 
   return (
     <div className={`singlefolio`}>
       <img src={image} alt={title} />
       <div className="folioHover">
         <a className="cate" href="#">
-          {categories.map((cat) => cat + ", ")}
+          {cats.find(cat => cat.id == data.category_id).name[router.locale]}
         </a>
         <h4>
-          <a href={url}>{title}</a>
+          <Link href={`/portfolio-details?item=${id}`}>
+            <a  >{title}</a>
+          </Link>
+
         </h4>
       </div>
     </div>

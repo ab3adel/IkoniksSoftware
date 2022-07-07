@@ -87,6 +87,11 @@ export const NavLinks = [
     name: "IMPRESSUM",
     url: "/impressum"
   },
+   {
+     name:'Careers',
+     url:'/careers'
+   },
+  
   {
     name: "Contact",
     url: "/contact"

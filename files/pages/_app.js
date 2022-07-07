@@ -8,13 +8,14 @@ import "@/css/services.css";
 import "@/css/theme.css";
 import "@/css/Portfolio.css";
 import "@/css/responsive.css";
+import "@/css/careers.css"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Head from "next/head";
 import { appWithTranslation } from 'next-i18next'
 import 'custom-cursor-react/dist/index.css';
 import "@/css/SliderBanner.css";
-
+import '@/css/career-details.css';
 
 
 

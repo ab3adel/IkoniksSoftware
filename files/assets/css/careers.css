@@ -1,0 +1,112 @@
+
+
+.career-card {
+    color :black;
+    border: 1px solid var(--blue);
+    box-shadow: 1px 2px 2px var(--blue);
+    cursor: pointer;
+    position:relative;
+ 
+}
+.career-card::after {
+    content: '';
+    width:0%;
+    position: absolute;
+    left:0;
+    top: 0;
+    height: 100%;
+    background: linear-gradient(180deg,#0fe3ff,#00b2ca ,#03a7bd,#068292,#044149);
+    opacity: 0.6;
+}
+.career-card:hover ,.career-card:focus {
+    transition: .4s all cubic-bezier(0.075, 0.82, 0.165, 1);
+    box-shadow:5px 5px 4px   var(--blue);
+   
+}
+.career-card-body {
+    position: relative;
+}
+.bubbles {
+    position:absolute;
+    border-radius: 100%;
+    opacity: 0.2;
+    z-index: 1;
+    top:0%;
+    background-color: var(--blue);
+}
+.career-card:hover::after , .career-card:focus::after {
+    animation: curtain 2s cubic-bezier(0.175, 0.885, 0.32, 1.275)  1 forwards;
+}
+.career-card:hover  .career-card-body .bubbles {
+  animation: bubbles 3s cubic-bezier(0.175, 0.885, 0.32, 1.275)  1 forwards;
+}
+.career-card:hover .career-card-body .career-card-title .career-card-mainTitle {
+    color:var(--blue)
+}
+.career-card:hover , .career-card:focus .career-card-body .career-card-title
+.career-card-title {
+
+    position: relative;
+}
+
+.career-card-mainTitle {
+    transition: .4s all ease-in-out;
+    font-size: 1.3em;
+}
+.hideText {
+    background:linear-gradient(45deg ,transparent ,white);
+    background-position: center;
+    width:90%;
+    height: 20%;
+    bottom:0.5em ;
+    position: absolute;
+    left:5px;
+    background-position: 100% 80%;
+    background-size: 300% 100%;
+
+}
+.career-search-container {
+    background-color: lightblue;
+}
+.stickyPosition{
+    position: sticky;
+    top:50vh
+}
+.career-search-title {
+    font-size: 1.2em;
+    color:black;
+    text-align: center;
+    padding:5px;
+}
+.career-search-body {
+    display: flex;
+    justify-content: center;
+}
+.career-search-input {
+    font-size: 1em;;
+}
+.career-search-btn {
+    background: var(--blue);
+    margin:0px 5px;
+    font-size: 1em;
+}
+.career-search-input-group:focus  i {
+color:var(--blue)
+}
+
+@keyframes curtain {
+    0% {
+       width:100%;
+
+    }
+    
+    100% {
+        opacity: 0;
+    }
+    
+}
+@media screen and (max-width:500px ) {
+    .hideText {
+        height: 10%;
+    }
+}

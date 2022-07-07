@@ -48,7 +48,7 @@ const HeaderOne = () => {
     setInterval(() => startAnimationTimer(), 15000)
 
   }, [])
-  console.log('router', router)
+
   return (
     <header
       className={`header_01 ${true === sticky ? "fixedHeader animated flipInX" : null
@@ -71,7 +71,7 @@ const HeaderOne = () => {
               </Link>
             </div>
           </Col>
-          <Col lg={8} sm={8} md={7} className="d-none d-lg-block ">
+          <Col lg={9} sm={9} md={8} className="d-none d-lg-block ">
             <nav className="mainmenu text-center">
               <ul>
                 {NavLinks.map((links, index) => {
